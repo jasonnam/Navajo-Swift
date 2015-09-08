@@ -1,0 +1,35 @@
+/*
+ Localized.strings
+ Navajo
+ 
+ Created by Jason Nam on 2015. 8. 29..
+ Copyright (c) 2015년 Jason Nam. All rights reserved.
+ */
+
+// Password Strength
+
+"NAVAJO_VERY_WEAK" = "매우 약함";
+"NAVAJO_WEAK" = "약함";
+"NAVAJO_REASONABLE" = "적당함";
+"NAVAJO_STRONG" = "강함";
+"NAVAJO_VERY_STRONG" = "매우 강함";
+
+// Password Validation
+
+"NAVAJO_ALLOWED_CHARACTER_ERROR" = "허용된 문자만 사용해야 합니다";
+
+"NAVAJO_REQUIRED_CHARACTER_REQUIRED_ERROR" = "요구되는 문자를 포함해야 합니다";
+"NAVAJO_REQUIRED_CHARACTER_LOWERCASE_ERROR" = "소문자를 포함해야 합니다";
+"NAVAJO_REQUIRED_CHARACTER_UPPERCASE_ERROR" = "대문자를 포함해야 합니다";
+"NAVAJO_REQUIRED_CHARACTER_DECIMAL_DIGIT_ERROR" = "숫자를 포함해야 합니다";
+"NAVAJO_REQUIRED_CHARACTER_SYMBOL_ERROR" = "심볼을 포함해야 합니다";
+
+"NAVAJO_DICTIONARYWORD_ERROR" = "사전에 포함된 문자를 사용하면 안됩니다";
+
+"NAVAJO_LENGTH_ERROR" = "길이가 다음 범위안에 있어야 합니다 ";
+
+"NAVAJO_PREDICATE_ERROR" = "Predicate에 매칭되면 안됩니다";
+
+"NAVAJO_REGEX_ERROR" = "Regex에 매칭되면 안됩니다";
+
+"NAVAJO_BLOCK_ERROR" = "Block에서 true가 반환되면 안됩니다";

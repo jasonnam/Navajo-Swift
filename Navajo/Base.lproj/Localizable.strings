@@ -1,0 +1,35 @@
+/*
+ Localized.strings
+ Navajo
+ 
+ Created by Jason Nam on 2015. 8. 29..
+ Copyright (c) 2015년 Jason Nam. All rights reserved.
+ */
+
+// Password Strength
+
+"NAVAJO_VERY_WEAK" = "Very Weak";
+"NAVAJO_WEAK" = "Weak";
+"NAVAJO_REASONABLE" = "Reasonable";
+"NAVAJO_STRONG" = "Strong";
+"NAVAJO_VERY_STRONG" = "Very Strong";
+
+// Password Validation
+
+"NAVAJO_ALLOWED_CHARACTER_ERROR" = "Must not include disallowed character";
+
+"NAVAJO_REQUIRED_CHARACTER_REQUIRED_ERROR" = "Must include required characters";
+"NAVAJO_REQUIRED_CHARACTER_LOWERCASE_ERROR" = "Must include lowercase characters";
+"NAVAJO_REQUIRED_CHARACTER_UPPERCASE_ERROR" = "Must include uppercase characters";
+"NAVAJO_REQUIRED_CHARACTER_DECIMAL_DIGIT_ERROR" = "Must include decimal digit characters";
+"NAVAJO_REQUIRED_CHARACTER_SYMBOL_ERROR" = "Must include symbol characters";
+
+"NAVAJO_DICTIONARYWORD_ERROR" = "Must not be dictionary word";
+
+"NAVAJO_LENGTH_ERROR" = "Must be within range ";
+
+"NAVAJO_PREDICATE_ERROR" = "Must not match predicate";
+
+"NAVAJO_REGEX_ERROR" = "Must not match regular expression";
+
+"NAVAJO_BLOCK_ERROR" = "Must not satisfy precondition";
