@@ -16,7 +16,7 @@
 
 ## Installation
 
-Just copy the file 'Navajo.swift' to your project.
+Just copy the file 'Navajo.swift' into your project.
 
 ## Usage
 
@@ -112,7 +112,7 @@ Keys for the localizable strings
 - NAVAJO_REGEX_ERROR
 - NAVAJO_BLOCK_ERROR
 
-### Contact
+## Contact
 
 Any feedback and pull requests are welcome :)
 
