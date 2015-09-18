@@ -40,8 +40,8 @@ class ViewController: UIViewController
     {
         if sender.on
         {
-            var lengthRule = NJOLengthRule(min: 2, max: 4)
-            var emailFilteringRule = NJORegularExpressionRule(regularExpression: NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}", options: .allZeros, error: nil)!)
+            let lengthRule = NJOLengthRule(min: 2, max: 4)
+            let emailFilteringRule = NJORegularExpressionRule(regularExpression: try! NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}", options: []))
             
             validator = NJOPasswordValidator(rules: [lengthRule, emailFilteringRule])
         }
@@ -55,9 +55,9 @@ class ViewController: UIViewController
     
     private func checkPassword()
     {
-        strengthLabel.text = Navajo.localizedStringForPasswordStrength(Navajo.strengthOfPassword(passwordField.text))
+        strengthLabel.text = Navajo.localizedStringForPasswordStrength(Navajo.strengthOfPassword(passwordField.text!))
         
-        var failingRules = validator.validatePassword(passwordField.text)
+        var failingRules = validator.validatePassword(passwordField.text!)
         
         if failingRules == nil
         {
