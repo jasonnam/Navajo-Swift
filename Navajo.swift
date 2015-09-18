@@ -71,23 +71,21 @@ class Navajo: NSObject
             return NSLocalizedString("NAVAJO_STRONG", tableName: nil, bundle: NSBundle.mainBundle(), value: "Strong", comment: "Navajo - Strong")
         case .VeryStrong:
             return NSLocalizedString("NAVAJO_VERY_STRONG", tableName: nil, bundle: NSBundle.mainBundle(), value: "Very Strong", comment: "Navajo - Very Strong")
-        default:
-            return NSLocalizedString("NAVAJO_VERY_WEAK", tableName: nil, bundle: NSBundle.mainBundle(), value: "Very Weak", comment: "Navajo - Very weak")
         }
     }
     
     private class func NJOEntropyForString(string: String) -> Float
     {
-        if count(string) == 0
+        if string.characters.count == 0
         {
             return 0.0
         }
 
         var sizeOfCharacterSet: Float = 0
         
-        (string as NSString).enumerateSubstringsInRange(NSMakeRange(0, count(string)), options: NSStringEnumerationOptions.ByComposedCharacterSequences) { ( substring, substringRange, enclosingRange, stop) -> () in
+        (string as NSString).enumerateSubstringsInRange(NSMakeRange(0, string.characters.count), options: NSStringEnumerationOptions.ByComposedCharacterSequences) { ( substring, substringRange, enclosingRange, stop) -> () in
             
-            let char = (substring as NSString).characterAtIndex(0)
+            let char = (substring! as NSString).characterAtIndex(0)
             
             if NSCharacterSet.lowercaseLetterCharacterSet().characterIsMember(char)
             {
@@ -125,7 +123,7 @@ class Navajo: NSObject
             }
         }
         
-        return log2f(sizeOfCharacterSet) * Float(count(string))
+        return log2f(sizeOfCharacterSet) * Float(string.characters.count)
     }
     
     private class func NJOPasswordStrengthForEntropy(entropy: Float) -> NJOPasswordStrength
@@ -248,7 +246,7 @@ class NJORequiredCharacterRule: NSObject, NJOPasswordRule
         case .DecimalDigitCharacter:
             requiredCharacterSet = NSCharacterSet.decimalDigitCharacterSet()
         case .SymbolCharacter:
-            var symbolCharacterSet = NSMutableCharacterSet.symbolCharacterSet()
+            let symbolCharacterSet = NSMutableCharacterSet.symbolCharacterSet()
             symbolCharacterSet.formUnionWithCharacterSet(NSCharacterSet.punctuationCharacterSet())
             requiredCharacterSet = symbolCharacterSet
         }
@@ -325,7 +323,7 @@ class NJOLengthRule: NSObject, NJOPasswordRule
             return false
         }
         
-        return !NSLocationInRange(count(string), _range)
+        return !NSLocationInRange(string.characters.count, _range)
     }
     
     func localizedErrorDescription() -> String
@@ -377,7 +375,7 @@ class NJORegularExpressionRule: NSObject, NJOPasswordRule
             return false
         }
         
-        return _regularExpression.numberOfMatchesInString(string, options: .allZeros, range: NSMakeRange(0, count(string))) > 0
+        return _regularExpression.numberOfMatchesInString(string, options: [], range: NSMakeRange(0, string.characters.count)) > 0
     }
     
     func localizedErrorDescription() -> String
