@@ -16,6 +16,19 @@
 
 ## Installation
 
+### CocoaPods
+
+```ruby
+use_frameworks!
+pod 'Navajo-Swift'
+```
+
+```swift
+import Navajo_Swift
+```
+
+### Manual
+
 Just copy the file 'Navajo.swift' into your project.
 
 ## Usage
