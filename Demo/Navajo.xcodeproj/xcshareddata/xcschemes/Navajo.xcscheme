@@ -14,9 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EC86460C1BC74ED000332F2E"
-               BuildableName = "Navajo.framework"
+               BlueprintIdentifier = "EC8056C21B91E13D00AA1CD1"
+               BuildableName = "Navajo.app"
                BlueprintName = "Navajo"
+               ReferencedContainer = "container:Navajo.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "EC8056D71B91E13D00AA1CD1"
+               BuildableName = "NavajoTests.xctest"
+               BlueprintName = "NavajoTests"
                ReferencedContainer = "container:Navajo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EC8646161BC74ED100332F2E"
+               BlueprintIdentifier = "EC8056D71B91E13D00AA1CD1"
                BuildableName = "NavajoTests.xctest"
                BlueprintName = "NavajoTests"
                ReferencedContainer = "container:Navajo.xcodeproj">
@@ -42,8 +56,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EC86460C1BC74ED000332F2E"
-            BuildableName = "Navajo.framework"
+            BlueprintIdentifier = "EC8056C21B91E13D00AA1CD1"
+            BuildableName = "Navajo.app"
             BlueprintName = "Navajo"
             ReferencedContainer = "container:Navajo.xcodeproj">
          </BuildableReference>
@@ -61,15 +75,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EC86460C1BC74ED000332F2E"
-            BuildableName = "Navajo.framework"
+            BlueprintIdentifier = "EC8056C21B91E13D00AA1CD1"
+            BuildableName = "Navajo.app"
             BlueprintName = "Navajo"
             ReferencedContainer = "container:Navajo.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -79,15 +94,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EC86460C1BC74ED000332F2E"
-            BuildableName = "Navajo.framework"
+            BlueprintIdentifier = "EC8056C21B91E13D00AA1CD1"
+            BuildableName = "Navajo.app"
             BlueprintName = "Navajo"
             ReferencedContainer = "container:Navajo.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
