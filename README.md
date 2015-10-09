@@ -36,7 +36,7 @@ import Navajo_Swift
 
 ### Manual
 
-Just copy the file 'Navajo.swift' into your project.
+Just copy the files in Source folder into your project.
 
 ## Usage
 
