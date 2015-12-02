@@ -6,7 +6,7 @@
 //  Copyright © 2015년 Jason Nam. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 public class NJOPasswordValidator: NSObject
 {
