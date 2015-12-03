@@ -6,7 +6,12 @@
 //  Copyright © 2015년 Jason Nam. All rights reserved.
 //
 
-import UIKit
+import Foundation
+#if os(iOS)
+	import UIKit
+#else
+	import CoreServices
+#endif
 
 public protocol NJOPasswordRule
 {
@@ -118,11 +123,15 @@ public class NJODictionaryWordRule: NSObject, NJOPasswordRule
 {
     private var nonLowercaseCharacterSet = NSCharacterSet.lowercaseLetterCharacterSet().invertedSet
     
-    public func evaluateWithString(string: String) -> Bool
-    {
-        return UIReferenceLibraryViewController.dictionaryHasDefinitionForTerm(string.lowercaseString.stringByTrimmingCharactersInSet(nonLowercaseCharacterSet))
-    }
-    
+	public func evaluateWithString(string: String) -> Bool
+	{
+		#if os(iOS)
+			return UIReferenceLibraryViewController.dictionaryHasDefinitionForTerm(string.lowercaseString.stringByTrimmingCharactersInSet(nonLowercaseCharacterSet))
+		#else
+			return DCSGetTermRangeInString(nil, string, 0).location != kCFNotFound
+		#endif
+	}
+
     public func localizedErrorDescription() -> String
     {
         return NSLocalizedString("NAVAJO_DICTIONARYWORD_ERROR", tableName: nil, bundle: NSBundle.mainBundle(), value: "Must not be dictionary word", comment: "Navajo - Dictionary word rule")

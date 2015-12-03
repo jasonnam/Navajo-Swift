@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC8646181BC74ED100332F2E /* Navajo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC86460D1BC74ED000332F2E /* Navajo.framework */; settings = {ASSET_TAGS = (); }; };
-		EC8646381BC7549300332F2E /* Navajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646351BC7549300332F2E /* Navajo.swift */; settings = {ASSET_TAGS = (); }; };
-		EC8646391BC7549300332F2E /* NJOPasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646361BC7549300332F2E /* NJOPasswordRule.swift */; settings = {ASSET_TAGS = (); }; };
-		EC86463A1BC7549300332F2E /* NJOPasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646371BC7549300332F2E /* NJOPasswordValidator.swift */; settings = {ASSET_TAGS = (); }; };
-		EC86463D1BC754DA00332F2E /* NavajoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC86463B1BC754A400332F2E /* NavajoTests.swift */; settings = {ASSET_TAGS = (); }; };
-		EC86463E1BC754DC00332F2E /* Navajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646351BC7549300332F2E /* Navajo.swift */; settings = {ASSET_TAGS = (); }; };
-		EC86463F1BC754DF00332F2E /* NJOPasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646371BC7549300332F2E /* NJOPasswordValidator.swift */; settings = {ASSET_TAGS = (); }; };
-		EC8646401BC754E100332F2E /* NJOPasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646361BC7549300332F2E /* NJOPasswordRule.swift */; settings = {ASSET_TAGS = (); }; };
+		EC8646181BC74ED100332F2E /* Navajo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC86460D1BC74ED000332F2E /* Navajo.framework */; };
+		EC8646381BC7549300332F2E /* Navajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646351BC7549300332F2E /* Navajo.swift */; };
+		EC8646391BC7549300332F2E /* NJOPasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646361BC7549300332F2E /* NJOPasswordRule.swift */; };
+		EC86463A1BC7549300332F2E /* NJOPasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646371BC7549300332F2E /* NJOPasswordValidator.swift */; };
+		EC86463D1BC754DA00332F2E /* NavajoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC86463B1BC754A400332F2E /* NavajoTests.swift */; };
+		EC86463E1BC754DC00332F2E /* Navajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646351BC7549300332F2E /* Navajo.swift */; };
+		EC86463F1BC754DF00332F2E /* NJOPasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646371BC7549300332F2E /* NJOPasswordValidator.swift */; };
+		EC8646401BC754E100332F2E /* NJOPasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646361BC7549300332F2E /* NJOPasswordRule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -270,9 +270,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "i386 x86_64 arm64 armv7 armv7s";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -311,9 +313,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "i386 x86_64 arm64 armv7 armv7s";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};

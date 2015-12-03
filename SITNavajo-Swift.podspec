@@ -1,8 +1,8 @@
 
 Pod::Spec.new do |s|
 
-  s.name             = "Navajo-Swift"
-  s.version          = "0.0.3"
+  s.name             = "SITNavajo-Swift"
+  s.version          = "0.0.4"
   s.summary          = "Password Validator & Strength Evaluator"
 
   s.description      = <<-DESC
@@ -29,10 +29,10 @@ Pod::Spec.new do |s|
   s.license          = { :type => "MIT", :file => "LICENSE" }
 
   s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.10'
 
-  s.source                = { :git    => "https://github.com/jasonnam/Navajo-Swift.git",
-                              :commit => "29a0e4dd4e3a533239b1f037183d4da0b579ec77",
-                              :tag    => "0.0.3" }
+  s.source                = { :git    => "https://github.com/teamoutbank/Navajo-Swift.git",
+                              :tag    => "0.0.4" }
 
   s.source_files = "Source/*.{swift}"
   s.requires_arc = true
