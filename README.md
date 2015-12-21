@@ -16,11 +16,11 @@
 
 ## Installation
 
+[![License](https://img.shields.io/cocoapods/l/Navajo-Swift.svg?style=flat)](https://opensource.org/licenses/MIT)
 [![Swift 2.0](https://img.shields.io/badge/Swift-2.0-orange.svg?style=flat)](https://developer.apple.com/swift)
-[![Platform iOS](https://img.shields.io/badge/Platform-iOS-red.svg?style=flat)](http://www.apple.com/ios)
+[![Platform iOS](https://img.shields.io/cocoapods/p/Navajo-Swift.svg?style=flat)](https://cocoapods.org/pods/Navajo-Swift)
 [![Travis-CI](https://travis-ci.org/jasonnam/Navajo-Swift.svg?branch=master)](https://travis-ci.org/jasonnam/Navajo-Swift)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![License](https://img.shields.io/cocoapods/l/Navajo-Swift.svg?style=flat)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/cocoapods/v/Navajo-Swift.svg?style=flat)](https://cocoapods.org/pods/Navajo-Swift)
 
 ### CocoaPods
