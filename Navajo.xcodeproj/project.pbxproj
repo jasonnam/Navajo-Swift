@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC8646181BC74ED100332F2E /* Navajo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC86460D1BC74ED000332F2E /* Navajo.framework */; settings = {ASSET_TAGS = (); }; };
-		EC8646381BC7549300332F2E /* Navajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646351BC7549300332F2E /* Navajo.swift */; settings = {ASSET_TAGS = (); }; };
-		EC8646391BC7549300332F2E /* NJOPasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646361BC7549300332F2E /* NJOPasswordRule.swift */; settings = {ASSET_TAGS = (); }; };
-		EC86463A1BC7549300332F2E /* NJOPasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646371BC7549300332F2E /* NJOPasswordValidator.swift */; settings = {ASSET_TAGS = (); }; };
-		EC86463D1BC754DA00332F2E /* NavajoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC86463B1BC754A400332F2E /* NavajoTests.swift */; settings = {ASSET_TAGS = (); }; };
-		EC86463E1BC754DC00332F2E /* Navajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646351BC7549300332F2E /* Navajo.swift */; settings = {ASSET_TAGS = (); }; };
-		EC86463F1BC754DF00332F2E /* NJOPasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646371BC7549300332F2E /* NJOPasswordValidator.swift */; settings = {ASSET_TAGS = (); }; };
-		EC8646401BC754E100332F2E /* NJOPasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646361BC7549300332F2E /* NJOPasswordRule.swift */; settings = {ASSET_TAGS = (); }; };
+		EC8646181BC74ED100332F2E /* Navajo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC86460D1BC74ED000332F2E /* Navajo.framework */; };
+		EC8646381BC7549300332F2E /* Navajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646351BC7549300332F2E /* Navajo.swift */; };
+		EC8646391BC7549300332F2E /* NJOPasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646361BC7549300332F2E /* NJOPasswordRule.swift */; };
+		EC86463A1BC7549300332F2E /* NJOPasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646371BC7549300332F2E /* NJOPasswordValidator.swift */; };
+		EC86463D1BC754DA00332F2E /* NavajoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC86463B1BC754A400332F2E /* NavajoTests.swift */; };
+		EC86463E1BC754DC00332F2E /* Navajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646351BC7549300332F2E /* Navajo.swift */; };
+		EC86463F1BC754DF00332F2E /* NJOPasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646371BC7549300332F2E /* NJOPasswordValidator.swift */; };
+		EC8646401BC754E100332F2E /* NJOPasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646361BC7549300332F2E /* NJOPasswordRule.swift */; };
+		ECE8E6811C28556500EC53BA /* Navajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646351BC7549300332F2E /* Navajo.swift */; };
+		ECE8E6821C28556500EC53BA /* NJOPasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646371BC7549300332F2E /* NJOPasswordValidator.swift */; };
+		ECE8E6831C28556500EC53BA /* NJOPasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646361BC7549300332F2E /* NJOPasswordRule.swift */; };
+		ECE8E68D1C28571000EC53BA /* Navajo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE8E6771C28070800EC53BA /* Navajo.framework */; };
+		ECE8E6931C2857BC00EC53BA /* Navajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646351BC7549300332F2E /* Navajo.swift */; };
+		ECE8E6941C2857BC00EC53BA /* NJOPasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646371BC7549300332F2E /* NJOPasswordValidator.swift */; };
+		ECE8E6951C2857BC00EC53BA /* NJOPasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646361BC7549300332F2E /* NJOPasswordRule.swift */; };
+		ECE8E6961C2857BC00EC53BA /* NavajoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC86463B1BC754A400332F2E /* NavajoTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,17 +33,26 @@
 			remoteGlobalIDString = EC86460C1BC74ED000332F2E;
 			remoteInfo = Navajo;
 		};
+		ECE8E68E1C28571000EC53BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC8646041BC74ED000332F2E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECE8E6761C28070800EC53BA;
+			remoteInfo = "Navajo OSX";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		EC86460D1BC74ED000332F2E /* Navajo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Navajo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC8646121BC74ED000332F2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
-		EC8646171BC74ED100332F2E /* NavajoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavajoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC8646171BC74ED100332F2E /* Navajo iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Navajo iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC86461E1BC74ED100332F2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
 		EC8646351BC7549300332F2E /* Navajo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navajo.swift; path = Source/Navajo.swift; sourceTree = SOURCE_ROOT; };
 		EC8646361BC7549300332F2E /* NJOPasswordRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NJOPasswordRule.swift; path = Source/NJOPasswordRule.swift; sourceTree = SOURCE_ROOT; };
 		EC8646371BC7549300332F2E /* NJOPasswordValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NJOPasswordValidator.swift; path = Source/NJOPasswordValidator.swift; sourceTree = SOURCE_ROOT; };
 		EC86463B1BC754A400332F2E /* NavajoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavajoTests.swift; path = Tests/NavajoTests.swift; sourceTree = SOURCE_ROOT; };
+		ECE8E6771C28070800EC53BA /* Navajo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Navajo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECE8E6881C28571000EC53BA /* Navajo OSX Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Navajo OSX Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECE8E6C61C28655200EC53BA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +68,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC8646181BC74ED100332F2E /* Navajo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECE8E6731C28070800EC53BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECE8E6851C28571000EC53BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECE8E68D1C28571000EC53BA /* Navajo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				EC86460D1BC74ED000332F2E /* Navajo.framework */,
-				EC8646171BC74ED100332F2E /* NavajoTests.xctest */,
+				EC8646171BC74ED100332F2E /* Navajo iOS Tests.xctest */,
+				ECE8E6771C28070800EC53BA /* Navajo.framework */,
+				ECE8E6881C28571000EC53BA /* Navajo OSX Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,7 +115,7 @@
 				EC8646351BC7549300332F2E /* Navajo.swift */,
 				EC8646371BC7549300332F2E /* NJOPasswordValidator.swift */,
 				EC8646361BC7549300332F2E /* NJOPasswordRule.swift */,
-				EC8646121BC74ED000332F2E /* Info.plist */,
+				ECE8E6C61C28655200EC53BA /* Info.plist */,
 			);
 			path = Navajo;
 			sourceTree = "<group>";
@@ -105,12 +139,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ECE8E6741C28070800EC53BA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		EC86460C1BC74ED000332F2E /* Navajo */ = {
+		EC86460C1BC74ED000332F2E /* Navajo iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EC8646211BC74ED100332F2E /* Build configuration list for PBXNativeTarget "Navajo" */;
+			buildConfigurationList = EC8646211BC74ED100332F2E /* Build configuration list for PBXNativeTarget "Navajo iOS" */;
 			buildPhases = (
 				EC8646081BC74ED000332F2E /* Sources */,
 				EC8646091BC74ED000332F2E /* Frameworks */,
@@ -121,14 +162,14 @@
 			);
 			dependencies = (
 			);
-			name = Navajo;
+			name = "Navajo iOS";
 			productName = Navajo;
 			productReference = EC86460D1BC74ED000332F2E /* Navajo.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		EC8646161BC74ED100332F2E /* NavajoTests */ = {
+		EC8646161BC74ED100332F2E /* Navajo iOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EC8646241BC74ED100332F2E /* Build configuration list for PBXNativeTarget "NavajoTests" */;
+			buildConfigurationList = EC8646241BC74ED100332F2E /* Build configuration list for PBXNativeTarget "Navajo iOS Tests" */;
 			buildPhases = (
 				EC8646131BC74ED100332F2E /* Sources */,
 				EC8646141BC74ED100332F2E /* Frameworks */,
@@ -139,9 +180,45 @@
 			dependencies = (
 				EC86461A1BC74ED100332F2E /* PBXTargetDependency */,
 			);
-			name = NavajoTests;
+			name = "Navajo iOS Tests";
 			productName = NavajoTests;
-			productReference = EC8646171BC74ED100332F2E /* NavajoTests.xctest */;
+			productReference = EC8646171BC74ED100332F2E /* Navajo iOS Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ECE8E6761C28070800EC53BA /* Navajo OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECE8E67C1C28070800EC53BA /* Build configuration list for PBXNativeTarget "Navajo OSX" */;
+			buildPhases = (
+				ECE8E6721C28070800EC53BA /* Sources */,
+				ECE8E6731C28070800EC53BA /* Frameworks */,
+				ECE8E6741C28070800EC53BA /* Headers */,
+				ECE8E6751C28070800EC53BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Navajo OSX";
+			productName = Navajo;
+			productReference = ECE8E6771C28070800EC53BA /* Navajo.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		ECE8E6871C28571000EC53BA /* Navajo OSX Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECE8E6901C28571000EC53BA /* Build configuration list for PBXNativeTarget "Navajo OSX Tests" */;
+			buildPhases = (
+				ECE8E6841C28571000EC53BA /* Sources */,
+				ECE8E6851C28571000EC53BA /* Frameworks */,
+				ECE8E6861C28571000EC53BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECE8E68F1C28571000EC53BA /* PBXTargetDependency */,
+			);
+			name = "Navajo OSX Tests";
+			productName = "Navajo OSX Tests";
+			productReference = ECE8E6881C28571000EC53BA /* Navajo OSX Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -150,7 +227,7 @@
 		EC8646041BC74ED000332F2E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Jason Nam";
 				TargetAttributes = {
@@ -159,6 +236,12 @@
 					};
 					EC8646161BC74ED100332F2E = {
 						CreatedOnToolsVersion = 7.0.1;
+					};
+					ECE8E6761C28070800EC53BA = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					ECE8E6871C28571000EC53BA = {
+						CreatedOnToolsVersion = 7.2;
 					};
 				};
 			};
@@ -174,8 +257,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EC86460C1BC74ED000332F2E /* Navajo */,
-				EC8646161BC74ED100332F2E /* NavajoTests */,
+				EC86460C1BC74ED000332F2E /* Navajo iOS */,
+				EC8646161BC74ED100332F2E /* Navajo iOS Tests */,
+				ECE8E6761C28070800EC53BA /* Navajo OSX */,
+				ECE8E6871C28571000EC53BA /* Navajo OSX Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -195,6 +280,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ECE8E6751C28070800EC53BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECE8E6861C28571000EC53BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -202,9 +301,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC8646391BC7549300332F2E /* NJOPasswordRule.swift in Sources */,
 				EC8646381BC7549300332F2E /* Navajo.swift in Sources */,
 				EC86463A1BC7549300332F2E /* NJOPasswordValidator.swift in Sources */,
+				EC8646391BC7549300332F2E /* NJOPasswordRule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,10 +311,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC86463E1BC754DC00332F2E /* Navajo.swift in Sources */,
 				EC86463D1BC754DA00332F2E /* NavajoTests.swift in Sources */,
-				EC8646401BC754E100332F2E /* NJOPasswordRule.swift in Sources */,
+				EC86463E1BC754DC00332F2E /* Navajo.swift in Sources */,
 				EC86463F1BC754DF00332F2E /* NJOPasswordValidator.swift in Sources */,
+				EC8646401BC754E100332F2E /* NJOPasswordRule.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECE8E6721C28070800EC53BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECE8E6811C28556500EC53BA /* Navajo.swift in Sources */,
+				ECE8E6821C28556500EC53BA /* NJOPasswordValidator.swift in Sources */,
+				ECE8E6831C28556500EC53BA /* NJOPasswordRule.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECE8E6841C28571000EC53BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECE8E6961C2857BC00EC53BA /* NavajoTests.swift in Sources */,
+				ECE8E6931C2857BC00EC53BA /* Navajo.swift in Sources */,
+				ECE8E6941C2857BC00EC53BA /* NJOPasswordValidator.swift in Sources */,
+				ECE8E6951C2857BC00EC53BA /* NJOPasswordRule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,8 +344,13 @@
 /* Begin PBXTargetDependency section */
 		EC86461A1BC74ED100332F2E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EC86460C1BC74ED000332F2E /* Navajo */;
+			target = EC86460C1BC74ED000332F2E /* Navajo iOS */;
 			targetProxy = EC8646191BC74ED100332F2E /* PBXContainerItemProxy */;
+		};
+		ECE8E68F1C28571000EC53BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECE8E6761C28070800EC53BA /* Navajo OSX */;
+			targetProxy = ECE8E68E1C28571000EC53BA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -268,6 +393,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -310,6 +436,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -329,11 +456,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jasonnam.Navajo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.Navajo-iOS";
+				PRODUCT_NAME = Navajo;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -347,10 +476,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jasonnam.Navajo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.Navajo-iOS";
+				PRODUCT_NAME = Navajo;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -360,7 +491,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jasonnam.NavajoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.Navajo-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -372,8 +503,78 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jasonnam.NavajoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.Navajo-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		ECE8E67D1C28070800EC53BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.Navajo-OSX";
+				PRODUCT_NAME = Navajo;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		ECE8E67E1C28070800EC53BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.Navajo-OSX";
+				PRODUCT_NAME = Navajo;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		ECE8E6911C28571000EC53BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.Navajo-OSX-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		ECE8E6921C28571000EC53BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.Navajo-OSX-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -389,7 +590,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EC8646211BC74ED100332F2E /* Build configuration list for PBXNativeTarget "Navajo" */ = {
+		EC8646211BC74ED100332F2E /* Build configuration list for PBXNativeTarget "Navajo iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EC8646221BC74ED100332F2E /* Debug */,
@@ -398,11 +599,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EC8646241BC74ED100332F2E /* Build configuration list for PBXNativeTarget "NavajoTests" */ = {
+		EC8646241BC74ED100332F2E /* Build configuration list for PBXNativeTarget "Navajo iOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EC8646251BC74ED100332F2E /* Debug */,
 				EC8646261BC74ED100332F2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECE8E67C1C28070800EC53BA /* Build configuration list for PBXNativeTarget "Navajo OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECE8E67D1C28070800EC53BA /* Debug */,
+				ECE8E67E1C28070800EC53BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECE8E6901C28571000EC53BA /* Build configuration list for PBXNativeTarget "Navajo OSX Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECE8E6911C28571000EC53BA /* Debug */,
+				ECE8E6921C28571000EC53BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

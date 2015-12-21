@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0720"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EC86460C1BC74ED000332F2E"
+               BlueprintIdentifier = "ECE8E6761C28070800EC53BA"
                BuildableName = "Navajo.framework"
-               BlueprintName = "Navajo"
+               BlueprintName = "Navajo OSX"
                ReferencedContainer = "container:Navajo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EC8646161BC74ED100332F2E"
-               BuildableName = "NavajoTests.xctest"
-               BlueprintName = "NavajoTests"
+               BlueprintIdentifier = "ECE8E6871C28571000EC53BA"
+               BuildableName = "Navajo OSX Tests.xctest"
+               BlueprintName = "Navajo OSX Tests"
                ReferencedContainer = "container:Navajo.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EC86460C1BC74ED000332F2E"
+            BlueprintIdentifier = "ECE8E6761C28070800EC53BA"
             BuildableName = "Navajo.framework"
-            BlueprintName = "Navajo"
+            BlueprintName = "Navajo OSX"
             ReferencedContainer = "container:Navajo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EC86460C1BC74ED000332F2E"
+            BlueprintIdentifier = "ECE8E6761C28070800EC53BA"
             BuildableName = "Navajo.framework"
-            BlueprintName = "Navajo"
+            BlueprintName = "Navajo OSX"
             ReferencedContainer = "container:Navajo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +82,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EC86460C1BC74ED000332F2E"
+            BlueprintIdentifier = "ECE8E6761C28070800EC53BA"
             BuildableName = "Navajo.framework"
-            BlueprintName = "Navajo"
+            BlueprintName = "Navajo OSX"
             ReferencedContainer = "container:Navajo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
