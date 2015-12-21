@@ -6,7 +6,12 @@
 //  Copyright © 2015년 Jason Nam. All rights reserved.
 //
 
-import UIKit
+import Foundation
+#if os(OSX)
+    import CoreServices
+#else
+    import UIKit
+#endif
 
 public protocol NJOPasswordRule
 {
@@ -120,7 +125,11 @@ public class NJODictionaryWordRule: NSObject, NJOPasswordRule
     
     public func evaluateWithString(string: String) -> Bool
     {
-        return UIReferenceLibraryViewController.dictionaryHasDefinitionForTerm(string.lowercaseString.stringByTrimmingCharactersInSet(nonLowercaseCharacterSet))
+        #if os(OSX)
+            return DCSGetTermRangeInString(nil, string, 0).location != kCFNotFound
+        #else
+            return UIReferenceLibraryViewController.dictionaryHasDefinitionForTerm(string.lowercaseString.stringByTrimmingCharactersInSet(nonLowercaseCharacterSet))
+        #endif
     }
     
     public func localizedErrorDescription() -> String

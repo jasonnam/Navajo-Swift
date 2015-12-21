@@ -6,7 +6,11 @@
 //  Copyright (c) 2015년 Jason Nam. All rights reserved.
 //
 
-import UIKit
+#if os(OSX)
+    import CoreServices
+#else
+    import UIKit
+#endif
 import XCTest
 
 class NavajoTests: XCTestCase
