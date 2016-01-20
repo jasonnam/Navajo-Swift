@@ -61,22 +61,15 @@ validator = NJOPasswordValidator(rules: [lengthRule, uppercaseRule])
 
 var failingRules = validator.validatePassword("PASSWORD")
 
-if failingRules == nil
-{
+if failingRules == nil {
     NSLog("The password is valid.")
-}
-else
-{
+} else {
     var errorMessage = ""
 
-    for var i = 0; i < failingRules!.count; i++
-    {
-        if i > 1
-        {
+    for var i = 0; i < failingRules!.count; i++ {
+        if i > 1 {
             errorMessage += ("\n" + failingRules![i].localizedErrorDescription())
-        }
-        else
-        {
+        } else {
             errorMessage += failingRules![i].localizedErrorDescription()
         }
     }
