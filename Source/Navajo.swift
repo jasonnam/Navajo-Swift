@@ -24,19 +24,32 @@
 
 import Foundation
 
+/// Strength of password. There are five levels divided by entropy value.
+/// The entropy value is evaluated by infromation entropy theory.
 public enum NJOPasswordStrength {
+    /// Entropy value is smaller than 28
     case VeryWeak
+    /// Entropy value is between 28 and 35
     case Weak
+    /// Entropy value is between 36 and 59
     case Reasonable
+    /// Entropy value is between 60 and 127
     case Strong
+    /// Entropy value is larger than 127
     case VeryStrong
 }
 
+/// Navajo validates strength of passwords.
 public class Navajo: NSObject {
+
+    /// Gets strength of a password.
+    /// - Parameter password: Password string to be calculated
+    /// - Returns: Level of strength in NJOPasswordStrength
     public class func strengthOfPassword(password: String) -> NJOPasswordStrength {
         return NJOPasswordStrengthForEntropy(NJOEntropyForString(password))
     }
 
+    /// Converts NJOPasswordStrength to localized string.
     public class func localizedStringForPasswordStrength(strength: NJOPasswordStrength) -> String {
         switch strength {
         case .VeryWeak:
