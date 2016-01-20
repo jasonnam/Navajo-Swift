@@ -29,18 +29,29 @@ import Foundation
     import UIKit
 #endif
 
+/// By adopting NJOPasswordRule protocol you can build your own rules.
 public protocol NJOPasswordRule {
+    /// Evaluating the password
+    /// - Parameter password: Password string to be evaluated
+    /// - Returns: true is considered to be failed and false is passed.
     func evaluateWithString(string: String) -> Bool
+    /// Error description
     func localizedErrorDescription() -> String
 }
 
+/// NJORequiredCharacterRulePreset makes initializing NJORequiredCharacterRule easy.
 public enum NJORequiredCharacterRulePreset {
+    /// Password should contain at least one lowercase character.
     case LowercaseCharacter
+    /// Password should contain at least one uppercase character.
     case UppercaseCharacter
+    /// Password should contain at least one decimal digit character.
     case DecimalDigitCharacter
+    /// Password should contain at least one symbol character.
     case SymbolCharacter
 }
 
+/// NJOAllowedCharacterRule checks if the password only has allowed characters.
 public class NJOAllowedCharacterRule: NSObject, NJOPasswordRule {
     private var disallowedCharacters: NSCharacterSet! = nil
 
@@ -49,6 +60,7 @@ public class NJOAllowedCharacterRule: NSObject, NJOPasswordRule {
         disallowedCharacters = characterSet.invertedSet
     }
 
+    /// Evaluate password. Return false if it is passed and true if failed.
     public func evaluateWithString(string: String) -> Bool {
         if disallowedCharacters == nil {
             return false
@@ -57,11 +69,14 @@ public class NJOAllowedCharacterRule: NSObject, NJOPasswordRule {
         return (string as NSString).rangeOfCharacterFromSet(disallowedCharacters).location != NSNotFound
     }
 
+    /// Error description. 
+    /// Localization Key - "NAVAJO_ALLOWED_CHARACTER_ERROR"
     public func localizedErrorDescription() -> String {
         return NSLocalizedString("NAVAJO_ALLOWED_CHARACTER_ERROR", tableName: nil, bundle: NSBundle.mainBundle(), value: "Must not include disallowed character", comment: "Navajo - Allowed character rule")
     }
 }
 
+/// NJORequiredCharacterRule checks if the password contains at least one required character.
 public class NJORequiredCharacterRule: NSObject, NJOPasswordRule {
     private var _preset: NJORequiredCharacterRulePreset! = nil
     private var requiredCharacterSet: NSCharacterSet! = nil
@@ -90,6 +105,7 @@ public class NJORequiredCharacterRule: NSObject, NJOPasswordRule {
         requiredCharacterSet = characterSet
     }
 
+    /// Evaluate password. Return false if it is passed and true if failed.
     public func evaluateWithString(string: String) -> Bool {
         if requiredCharacterSet == nil {
             return false
@@ -98,6 +114,13 @@ public class NJORequiredCharacterRule: NSObject, NJOPasswordRule {
         return (string as NSString).rangeOfCharacterFromSet(requiredCharacterSet).location == NSNotFound
     }
 
+    /// Error description.
+    /// Localization keys
+    /// - Lowercase error "NAVAJO_REQUIRED_CHARACTER_LOWERCASE_ERROR"
+    /// - Uppercase error "NAVAJO_REQUIRED_CHARACTER_UPPERCASE_ERROR"
+    /// - Decimal digit error "NAVAJO_REQUIRED_CHARACTER_DECIMAL_DIGIT_ERROR"
+    /// - Symbol error "NAVAJO_REQUIRED_CHARACTER_SYMBOL_ERROR"
+    /// - Default error "NAVAJO_REQUIRED_CHARACTER_REQUIRED_ERROR"
     public func localizedErrorDescription() -> String {
         if let preset = _preset {
             switch preset {
@@ -116,9 +139,11 @@ public class NJORequiredCharacterRule: NSObject, NJOPasswordRule {
     }
 }
 
+/// NJODictionaryWordRule checks if the password can be found on the OSX or iOS dictionary.
 public class NJODictionaryWordRule: NSObject, NJOPasswordRule {
     private var nonLowercaseCharacterSet = NSCharacterSet.lowercaseLetterCharacterSet().invertedSet
 
+    /// Evaluate password. Return false if it is passed and true if failed.
     public func evaluateWithString(string: String) -> Bool {
         #if os(OSX)
             return DCSGetTermRangeInString(nil, string, 0).location != kCFNotFound
@@ -127,11 +152,14 @@ public class NJODictionaryWordRule: NSObject, NJOPasswordRule {
         #endif
     }
 
+    /// Error description.
+    /// Localization Key - "NAVAJO_DICTIONARYWORD_ERROR"
     public func localizedErrorDescription() -> String {
         return NSLocalizedString("NAVAJO_DICTIONARYWORD_ERROR", tableName: nil, bundle: NSBundle.mainBundle(), value: "Must not be dictionary word", comment: "Navajo - Dictionary word rule")
     }
 }
 
+/// NJOLengthRule checks the length of password.
 public class NJOLengthRule: NSObject, NJOPasswordRule {
     private var _range: NSRange! = nil
 
@@ -140,6 +168,7 @@ public class NJOLengthRule: NSObject, NJOPasswordRule {
         _range = NSMakeRange(min, max - min + 1)
     }
 
+    /// Evaluate password. Return false if it is passed and true if failed.
     public func evaluateWithString(string: String) -> Bool {
         if _range == nil {
             return false
@@ -148,11 +177,14 @@ public class NJOLengthRule: NSObject, NJOPasswordRule {
         return !NSLocationInRange(string.characters.count, _range)
     }
 
+    /// Error description.
+    /// Localization Key - "NAVAJO_LENGTH_ERROR"
     public func localizedErrorDescription() -> String {
         return NSLocalizedString("NAVAJO_LENGTH_ERROR", tableName: nil, bundle: NSBundle.mainBundle(), value: "Must be within range ", comment: "Navajo - Length rule") + NSStringFromRange(_range)
     }
 }
 
+/// NJOPredicateRule checks password with a NSPredicate object.
 public class NJOPredicateRule: NSObject, NJOPasswordRule {
     private var _predicate: NSPredicate! = nil
 
@@ -161,6 +193,7 @@ public class NJOPredicateRule: NSObject, NJOPasswordRule {
         _predicate = predicate
     }
 
+    /// Evaluate password. Return false if it is passed and true if failed.
     public func evaluateWithString(string: String) -> Bool {
         if _predicate == nil {
             return false
@@ -169,11 +202,14 @@ public class NJOPredicateRule: NSObject, NJOPasswordRule {
         return _predicate.evaluateWithObject(string)
     }
 
+    /// Error description.
+    /// Localization Key - "NAVAJO_PREDICATE_ERROR"
     public func localizedErrorDescription() -> String {
         return NSLocalizedString("NAVAJO_PREDICATE_ERROR", tableName: nil, bundle: NSBundle.mainBundle(), value: "Must not match predicate", comment: "Navajo - Predicate rule")
     }
 }
 
+/// NJORegularExpressionRule checks password with a NSRegularExpression object.
 public class NJORegularExpressionRule: NSObject, NJOPasswordRule {
     private var _regularExpression: NSRegularExpression! = nil
 
@@ -182,6 +218,7 @@ public class NJORegularExpressionRule: NSObject, NJOPasswordRule {
         _regularExpression = regularExpression
     }
 
+    /// Evaluate password. Return false if it is passed and true if failed.
     public func evaluateWithString(string: String) -> Bool {
         if _regularExpression == nil {
             return false
@@ -190,11 +227,14 @@ public class NJORegularExpressionRule: NSObject, NJOPasswordRule {
         return _regularExpression.numberOfMatchesInString(string, options: [], range: NSMakeRange(0, string.characters.count)) > 0
     }
 
+    /// Error description.
+    /// Localization Key - "NAVAJO_REGEX_ERROR"
     public func localizedErrorDescription() -> String {
         return NSLocalizedString("NAVAJO_REGEX_ERROR", tableName: nil, bundle: NSBundle.mainBundle(), value: "Must not match regular expression", comment: "Navajo - Regex rule")
     }
 }
 
+/// NJOBlockRule checks password with a block which gets a string and returns a bool value.
 public class NJOBlockRule: NSObject, NJOPasswordRule {
     private var _evaluation: (String -> Bool)! = nil
 
@@ -203,6 +243,7 @@ public class NJOBlockRule: NSObject, NJOPasswordRule {
         _evaluation = evaluation
     }
 
+    /// Evaluate password. Return false if it is passed and true if failed.
     public func evaluateWithString(string: String) -> Bool {
         if _evaluation == nil {
             return false
@@ -211,6 +252,8 @@ public class NJOBlockRule: NSObject, NJOPasswordRule {
         return _evaluation(string)
     }
 
+    /// Error description.
+    /// Localization Key - "NAVAJO_BLOCK_ERROR"
     public func localizedErrorDescription() -> String {
         return NSLocalizedString("NAVAJO_BLOCK_ERROR", tableName: nil, bundle: NSBundle.mainBundle(), value: "Must not satisfy precondition", comment: "Navajo - Block rule")
     }
