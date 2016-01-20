@@ -24,8 +24,7 @@
 
 import Foundation
 
-public enum NJOPasswordStrength
-{
+public enum NJOPasswordStrength {
     case VeryWeak
     case Weak
     case Reasonable
@@ -33,17 +32,13 @@ public enum NJOPasswordStrength
     case VeryStrong
 }
 
-public class Navajo: NSObject
-{
-    public class func strengthOfPassword(password: String) -> NJOPasswordStrength
-    {
+public class Navajo: NSObject {
+    public class func strengthOfPassword(password: String) -> NJOPasswordStrength {
         return NJOPasswordStrengthForEntropy(NJOEntropyForString(password))
     }
-    
-    public class func localizedStringForPasswordStrength(strength: NJOPasswordStrength) -> String
-    {
-        switch strength
-        {
+
+    public class func localizedStringForPasswordStrength(strength: NJOPasswordStrength) -> String {
+        switch strength {
         case .VeryWeak:
             return NSLocalizedString("NAVAJO_VERY_WEAK", tableName: nil, bundle: NSBundle.mainBundle(), value: "Very Weak", comment: "Navajo - Very weak")
         case .Weak:
@@ -56,79 +51,59 @@ public class Navajo: NSObject
             return NSLocalizedString("NAVAJO_VERY_STRONG", tableName: nil, bundle: NSBundle.mainBundle(), value: "Very Strong", comment: "Navajo - Very Strong")
         }
     }
-    
-    private class func NJOEntropyForString(string: String) -> Float
-    {
-        if string.characters.count == 0
-        {
+
+    private class func NJOEntropyForString(string: String) -> Float {
+        if string.characters.count == 0 {
             return 0.0
         }
 
         var sizeOfCharacterSet: Float = 0
-        
+
         (string as NSString).enumerateSubstringsInRange(NSMakeRange(0, string.characters.count), options: NSStringEnumerationOptions.ByComposedCharacterSequences) { ( substring, substringRange, enclosingRange, stop) -> () in
-            
             let char = (substring! as NSString).characterAtIndex(0)
-            
-            if NSCharacterSet.lowercaseLetterCharacterSet().characterIsMember(char)
-            {
+
+            if NSCharacterSet.lowercaseLetterCharacterSet().characterIsMember(char) {
                 sizeOfCharacterSet += 26
             }
 
-            if NSCharacterSet.uppercaseLetterCharacterSet().characterIsMember(char)
-            {
+            if NSCharacterSet.uppercaseLetterCharacterSet().characterIsMember(char) {
                 sizeOfCharacterSet += 26
             }
-            
-            if NSCharacterSet.decimalDigitCharacterSet().characterIsMember(char)
-            {
+
+            if NSCharacterSet.decimalDigitCharacterSet().characterIsMember(char) {
                 sizeOfCharacterSet += 10
             }
-            
-            if NSCharacterSet.symbolCharacterSet().characterIsMember(char)
-            {
+
+            if NSCharacterSet.symbolCharacterSet().characterIsMember(char) {
                 sizeOfCharacterSet += 10
             }
-            
-            if NSCharacterSet.punctuationCharacterSet().characterIsMember(char)
-            {
+
+            if NSCharacterSet.punctuationCharacterSet().characterIsMember(char) {
                 sizeOfCharacterSet += 20
             }
-            
-            if NSCharacterSet.whitespaceAndNewlineCharacterSet().characterIsMember(char)
-            {
+
+            if NSCharacterSet.whitespaceAndNewlineCharacterSet().characterIsMember(char) {
                 sizeOfCharacterSet += 1
             }
-            
-            if NSCharacterSet.nonBaseCharacterSet().characterIsMember(char)
-            {
+
+            if NSCharacterSet.nonBaseCharacterSet().characterIsMember(char) {
                 sizeOfCharacterSet += 32 + 128
             }
         }
-        
+
         return log2f(sizeOfCharacterSet) * Float(string.characters.count)
     }
-    
-    private class func NJOPasswordStrengthForEntropy(entropy: Float) -> NJOPasswordStrength
-    {
-        if entropy < 28
-        {
+
+    private class func NJOPasswordStrengthForEntropy(entropy: Float) -> NJOPasswordStrength {
+        if entropy < 28 {
             return .VeryWeak
-        }
-        else if entropy < 36
-        {
+        } else if entropy < 36 {
             return .Weak
-        }
-        else if entropy < 60
-        {
+        } else if entropy < 60 {
             return .Reasonable
-        }
-        else if entropy < 128
-        {
+        } else if entropy < 128 {
             return .Strong
-        }
-        else
-        {
+        } else {
             return .VeryStrong
         }
     }
