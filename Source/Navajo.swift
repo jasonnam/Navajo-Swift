@@ -1,5 +1,5 @@
 //
-// SwiftyNavajo.swift
+// Navajo.swift
 //
 // Copyright (c) 2015 Jason Nam (http://www.jasonnam.com)
 //
