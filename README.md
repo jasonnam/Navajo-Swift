@@ -131,6 +131,12 @@ Keys for the localizable strings
 - NAVAJO_REGEX_ERROR
 - NAVAJO_BLOCK_ERROR
 
+## TODO
+
+- Improved documentation
+- Swift Package Manager Support
+- Considering support for Swift throws - catch
+
 ## Contact
 
 Any feedback and pull requests are welcome :)
