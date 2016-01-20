@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name             = "Navajo-Swift"
-  s.version          = "0.0.4"
+  s.version          = "0.0.5"
   s.summary          = "Password Validator & Strength Evaluator"
 
   s.description      = <<-DESC
@@ -32,8 +32,8 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.10'
 
   s.source                = { :git    => "https://github.com/jasonnam/Navajo-Swift.git",
-                              :commit => "363eaed0b1b1c4187a45ce5362f8442c8f351ea7",
-                              :tag    => "0.0.4" }
+                              :commit => "93a765e809520d5ec296387e096df3491feba8f1",
+                              :tag    => "0.0.5" }
 
   s.source_files = "Source/*.{swift}"
   s.requires_arc = true
