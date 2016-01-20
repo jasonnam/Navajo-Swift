@@ -23,6 +23,12 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/Navajo-Swift.svg?style=flat)](https://cocoapods.org/pods/Navajo-Swift)
 
+### Carthage
+
+```ogdl
+github "jasonnam/Navajo-Swift"
+```
+
 ### CocoaPods
 
 ```ruby
