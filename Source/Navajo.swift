@@ -42,9 +42,11 @@ public enum NJOPasswordStrength {
 /// Navajo validates strength of passwords.
 public class Navajo: NSObject {
 
-    /// Gets strength of a password.
-    /// - Parameter password: Password string to be calculated
-    /// - Returns: Level of strength in NJOPasswordStrength
+    /**
+        Gets strength of a password.
+        - Parameter password: Password string to be calculated
+        - Returns: Level of strength in NJOPasswordStrength
+    */
     public class func strengthOfPassword(password: String) -> NJOPasswordStrength {
         return NJOPasswordStrengthForEntropy(NJOEntropyForString(password))
     }

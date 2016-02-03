@@ -31,9 +31,11 @@ import Foundation
 
 /// By adopting NJOPasswordRule protocol you can build your own rules.
 public protocol NJOPasswordRule {
-    /// Evaluating the password
-    /// - Parameter password: Password string to be evaluated
-    /// - Returns: true is considered to be failed and false is passed.
+    /**
+        Evaluating the password
+        - Parameter password: Password string to be evaluated
+        - Returns: true is considered to be failed and false is passed.
+    */
     func evaluateWithString(string: String) -> Bool
     /// Error description
     func localizedErrorDescription() -> String
@@ -55,6 +57,7 @@ public enum NJORequiredCharacterRulePreset {
 public class NJOAllowedCharacterRule: NSObject, NJOPasswordRule {
     private var disallowedCharacters: NSCharacterSet! = nil
 
+    /// Initialize with an NSCharacterSet object.
     public convenience init(characterSet: NSCharacterSet) {
         self.init()
         disallowedCharacters = characterSet.invertedSet
@@ -81,6 +84,7 @@ public class NJORequiredCharacterRule: NSObject, NJOPasswordRule {
     private var _preset: NJORequiredCharacterRulePreset! = nil
     private var requiredCharacterSet: NSCharacterSet! = nil
 
+    /// Initialize with an NJORequiredCharacterRulePreset object.
     public convenience init(preset: NJORequiredCharacterRulePreset) {
         self.init()
 
@@ -100,6 +104,7 @@ public class NJORequiredCharacterRule: NSObject, NJOPasswordRule {
         }
     }
 
+    /// Initialize with an NSCharacterSet object.
     public convenience init(characterSet: NSCharacterSet) {
         self.init()
         requiredCharacterSet = characterSet
@@ -163,6 +168,7 @@ public class NJODictionaryWordRule: NSObject, NJOPasswordRule {
 public class NJOLengthRule: NSObject, NJOPasswordRule {
     private var _range: NSRange! = nil
 
+    /// Initialize with minimum and maximum values.
     public convenience init(min: Int, max: Int) {
         self.init()
         _range = NSMakeRange(min, max - min + 1)
@@ -188,6 +194,7 @@ public class NJOLengthRule: NSObject, NJOPasswordRule {
 public class NJOPredicateRule: NSObject, NJOPasswordRule {
     private var _predicate: NSPredicate! = nil
 
+    /// Initialize with an NSPredicate object.
     public convenience init(predicate: NSPredicate) {
         self.init()
         _predicate = predicate
@@ -213,6 +220,7 @@ public class NJOPredicateRule: NSObject, NJOPasswordRule {
 public class NJORegularExpressionRule: NSObject, NJOPasswordRule {
     private var _regularExpression: NSRegularExpression! = nil
 
+    /// Initialize with an NSRegularExpression object.
     public convenience init(regularExpression: NSRegularExpression) {
         self.init()
         _regularExpression = regularExpression
@@ -238,6 +246,7 @@ public class NJORegularExpressionRule: NSObject, NJOPasswordRule {
 public class NJOBlockRule: NSObject, NJOPasswordRule {
     private var _evaluation: (String -> Bool)! = nil
 
+    /// Initialize with a Block.
     public convenience init(evaluation: String -> Bool) {
         self.init()
         _evaluation = evaluation

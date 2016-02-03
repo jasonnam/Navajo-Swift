@@ -44,9 +44,11 @@ public class NJOPasswordValidator: NSObject {
         return NJOLengthRule(min: 6, max: 24)
     }
 
-    /// Executes validation with a password and returns failing rules.
-    /// - Parameter password: Password string to be validated
-    /// - Returns: Failing rules. nil if all of the rules are passed.
+    /**
+        Executes validation with a password and returns failing rules.
+        - Parameter password: Password string to be validated
+        - Returns: Failing rules. nil if all of the rules are passed.
+    */
     public func validatePassword(password: String) -> [NJOPasswordRule]? {
         var failingRules: [NJOPasswordRule] = []
 
