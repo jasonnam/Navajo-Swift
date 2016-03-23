@@ -6,7 +6,7 @@ env:
   - LANG=en_US.UTF-8
   - IOS_FRAMEWORK_SCHEME="Navajo iOS"
   - OSX_FRAMEWORK_SCHEME="Navajo OSX"
-  - IOS_SDK=iphonesimulator9.2
+  - IOS_SDK=iphonesimulator9.3
   - OSX_SDK=macosx10.11
   matrix:
     - DESTINATION="OS=8.1,name=iPhone 4S"       SCHEME="$IOS_FRAMEWORK_SCHEME"  SDK="$IOS_SDK"  POD_LINT="YES"
