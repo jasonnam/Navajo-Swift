@@ -15,6 +15,8 @@
 		EC86463E1BC754DC00332F2E /* Navajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646351BC7549300332F2E /* Navajo.swift */; };
 		EC86463F1BC754DF00332F2E /* NJOPasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646371BC7549300332F2E /* NJOPasswordValidator.swift */; };
 		EC8646401BC754E100332F2E /* NJOPasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646361BC7549300332F2E /* NJOPasswordRule.swift */; };
+		ECD5E0941CBB94C400D4A07A /* Navajo.h in Headers */ = {isa = PBXBuildFile; fileRef = ECD5E0931CBB94A100D4A07A /* Navajo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECD5E0951CBB94C900D4A07A /* Navajo.h in Headers */ = {isa = PBXBuildFile; fileRef = ECD5E0931CBB94A100D4A07A /* Navajo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECE8E6811C28556500EC53BA /* Navajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646351BC7549300332F2E /* Navajo.swift */; };
 		ECE8E6821C28556500EC53BA /* NJOPasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646371BC7549300332F2E /* NJOPasswordValidator.swift */; };
 		ECE8E6831C28556500EC53BA /* NJOPasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646361BC7549300332F2E /* NJOPasswordRule.swift */; };
@@ -50,6 +52,7 @@
 		EC8646361BC7549300332F2E /* NJOPasswordRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NJOPasswordRule.swift; path = Source/NJOPasswordRule.swift; sourceTree = SOURCE_ROOT; };
 		EC8646371BC7549300332F2E /* NJOPasswordValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NJOPasswordValidator.swift; path = Source/NJOPasswordValidator.swift; sourceTree = SOURCE_ROOT; };
 		EC86463B1BC754A400332F2E /* NavajoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavajoTests.swift; path = Tests/NavajoTests.swift; sourceTree = SOURCE_ROOT; };
+		ECD5E0931CBB94A100D4A07A /* Navajo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Navajo.h; path = Source/Navajo.h; sourceTree = SOURCE_ROOT; };
 		ECE8E6771C28070800EC53BA /* Navajo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Navajo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE8E6881C28571000EC53BA /* Navajo OSX Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Navajo OSX Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE8E6C61C28655200EC53BA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 		EC86460F1BC74ED000332F2E /* Navajo */ = {
 			isa = PBXGroup;
 			children = (
+				ECD5E0931CBB94A100D4A07A /* Navajo.h */,
 				EC8646351BC7549300332F2E /* Navajo.swift */,
 				EC8646371BC7549300332F2E /* NJOPasswordValidator.swift */,
 				EC8646361BC7549300332F2E /* NJOPasswordRule.swift */,
@@ -136,6 +140,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD5E0941CBB94C400D4A07A /* Navajo.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +148,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD5E0951CBB94C900D4A07A /* Navajo.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
