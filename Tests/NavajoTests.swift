@@ -44,7 +44,7 @@ class NavajoTests: XCTestCase {
         XCTAssert(ruleWithoutInitialCharacterSet.evaluateWithString("PASSWORD") == false, "Allowed character rule not ignored")
 
 
-        let ruleWithInitialCharacterSet = NJOAllowedCharacterRule(characterSet: NSCharacterSet(charactersInString: "abc"))
+        let ruleWithInitialCharacterSet = NJOAllowedCharacterRule(characterSet: CharacterSet(charactersIn: "abc"))
 
         XCTAssert(ruleWithInitialCharacterSet.evaluateWithString("abcd") == true, "Disallowed characters are not filtered out")
         XCTAssert(ruleWithInitialCharacterSet.evaluateWithString("aaa") == false, "Allowed characters are used but failed to pass")
@@ -57,32 +57,32 @@ class NavajoTests: XCTestCase {
         XCTAssert(ruleWithoutInitialOption.evaluateWithString("PASSWORD") == false, "Required character rule without initial option not ignored")
 
 
-        let ruleWithRequiredCharacters = NJORequiredCharacterRule(characterSet: NSCharacterSet(charactersInString: "!@#ABCabc"))
+        let ruleWithRequiredCharacters = NJORequiredCharacterRule(characterSet: CharacterSet(charactersIn: "!@#ABCabc"))
 
         XCTAssert(ruleWithRequiredCharacters.evaluateWithString("!d@e#fAgBhCabc") == false, "All of the required characters are used but not passed")
         XCTAssert(ruleWithRequiredCharacters.evaluateWithString("!d@e#fAg") == false, "Some of the required characters are used but not passed")
         XCTAssert(ruleWithRequiredCharacters.evaluateWithString("deg$%^") == true, "Required characters are not used but passed")
 
 
-        let ruleWithInitialLowercasePreset = NJORequiredCharacterRule(preset: .LowercaseCharacter)
+        let ruleWithInitialLowercasePreset = NJORequiredCharacterRule(preset: .lowercaseCharacter)
 
         XCTAssert(ruleWithInitialLowercasePreset.evaluateWithString("Abcdef12345!@#") == false, "Some of the characters are lowercase but not passed")
         XCTAssert(ruleWithInitialLowercasePreset.evaluateWithString("ABCDEF12345!@#") == true, "All of them are uppercase but passed")
 
 
-        let ruleWithInitialUppercasePreset = NJORequiredCharacterRule(preset: .UppercaseCharacter)
+        let ruleWithInitialUppercasePreset = NJORequiredCharacterRule(preset: .uppercaseCharacter)
 
         XCTAssert(ruleWithInitialUppercasePreset.evaluateWithString("AbcDef12345!@#") == false, "Some of the characters are uppercase but not passed")
         XCTAssert(ruleWithInitialUppercasePreset.evaluateWithString("abcdef12345!@#") == true, "All of them are lowercase but passed")
 
 
-        let ruleWithInitialDecimalDigitPreset = NJORequiredCharacterRule(preset: .DecimalDigitCharacter)
+        let ruleWithInitialDecimalDigitPreset = NJORequiredCharacterRule(preset: .decimalDigitCharacter)
 
         XCTAssert(ruleWithInitialDecimalDigitPreset.evaluateWithString("Abcdef12345!@#") == false, "Some of the characters are decimal digits but not passed")
         XCTAssert(ruleWithInitialDecimalDigitPreset.evaluateWithString("abcdef!@#") == true, "No decimal digits but passed")
 
 
-        let ruleWithInitialSymbolPreset = NJORequiredCharacterRule(preset: .SymbolCharacter)
+        let ruleWithInitialSymbolPreset = NJORequiredCharacterRule(preset: .symbolCharacter)
 
         XCTAssert(ruleWithInitialSymbolPreset.evaluateWithString("Abcdef12345!") == false, "Some of the characters are symbols but not passed")
         XCTAssert(ruleWithInitialSymbolPreset.evaluateWithString("abcdef") == true, "No symbols but passed")
@@ -135,7 +135,7 @@ class NavajoTests: XCTestCase {
 
         let ruleWithInitialBlock = NJOBlockRule() { (password: String) in
             let emailRegex = try! NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}", options: [])
-            return emailRegex.numberOfMatchesInString(password, options: [], range: NSMakeRange(0, password.characters.count)) > 0
+            return emailRegex.numberOfMatches(in: password, options: [], range: NSMakeRange(0, password.characters.count)) > 0
         }
 
         XCTAssert(ruleWithInitialBlock.evaluateWithString("contact@jasonnam.com") == true, "Password is an email but passed")
