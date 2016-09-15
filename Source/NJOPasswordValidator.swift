@@ -26,8 +26,8 @@
 import Foundation
 
 /// NJOPasswordValidator validates passwords with custom rules.
-public class NJOPasswordValidator: NSObject {
-    private var _rules: [NJOPasswordRule]! = nil
+open class NJOPasswordValidator: NSObject {
+    fileprivate var _rules: [NJOPasswordRule]! = nil
 
     /// Initialize NJOPasswordValidator with an array of NJOPasswordRule.
     public convenience init(rules: [NJOPasswordRule]) {
@@ -36,12 +36,12 @@ public class NJOPasswordValidator: NSObject {
     }
 
     /// NJOPasswordValidator object which checks if the length of password is between 6 and 24.
-    public class func standardValidator() -> NJOPasswordValidator {
+    open class func standardValidator() -> NJOPasswordValidator {
         return NJOPasswordValidator(rules: [NJOLengthRule(min: 6, max: 24)])
     }
 
     /// Length rule having minimum of 6 and maximum of 24.
-    public class func standardLengthRule() -> NJOLengthRule {
+    open class func standardLengthRule() -> NJOLengthRule {
         return NJOLengthRule(min: 6, max: 24)
     }
 
@@ -50,12 +50,12 @@ public class NJOPasswordValidator: NSObject {
         - Parameter password: Password string to be validated
         - Returns: Failing rules. nil if all of the rules are passed.
     */
-    public func validatePassword(password: String) -> [NJOPasswordRule]? {
+    open func validatePassword(_ password: String) -> [NJOPasswordRule]? {
         var failingRules: [NJOPasswordRule] = []
 
         for rule in _rules {
             if rule.evaluateWithString(password) {
-                failingRules.insert(rule, atIndex: failingRules.count)
+                failingRules.insert(rule, at: failingRules.count)
             }
         }
 
