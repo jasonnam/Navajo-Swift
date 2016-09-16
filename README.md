@@ -50,10 +50,13 @@ Just copy the files in Source folder into your project.
 > Password strength is evaluated in terms of [information entropy](http://en.wikipedia.org/wiki/Entropy_%28information_theory%29).
 
 ```swift
-@IBOutlet weak var passwordField: UITextField! = nil
-@IBOutlet weak var strengthLabel: UILabel! = nil
+@IBOutlet private weak var passwordField: UITextField! = nil
+@IBOutlet private weak var strengthLabel: UILabel! = nil
 
-strengthLabel.text = Navajo.localizedStringForPasswordStrength(Navajo.strengthOfPassword(passwordField.text))
+let password = passwordField.text ?? ""
+let strength = Navajo.strengthOfPassword(password: password)
+
+strengthLabel.text = Navajo.localizedStringForPasswordStrength(strength: strength)
 ```
 
 ### Validating Password
@@ -64,22 +67,18 @@ var uppercaseRule = NJORequiredCharacterRule(preset: .LowercaseCharacter)
 
 validator = NJOPasswordValidator(rules: [lengthRule, uppercaseRule])
 
-var failingRules = validator.validatePassword("PASSWORD")
+if let failingRules = validator.validatePassword(password: "PASSWORD") {
+    var errorMessages: [String] = []
 
-if failingRules == nil {
-    NSLog("The password is valid.")
-} else {
-    var errorMessage = ""
-
-    for var i = 0; i < failingRules!.count; i++ {
-        if i > 1 {
-            errorMessage += ("\n" + failingRules![i].localizedErrorDescription())
-        } else {
-            errorMessage += failingRules![i].localizedErrorDescription()
-        }
+    failingRules.forEach { rule in
+        errorMessages.append(rule.localizedErrorDescription())
     }
 
-    NSLog("\(errorMessage)")
+    validationLabel.textColor = UIColor.red
+    validationLabel.text = errorMessages.joined(separator: "\n")
+} else {
+    validationLabel.textColor = UIColor.green
+    validationLabel.text = "Valid"
 }
 ```
 
