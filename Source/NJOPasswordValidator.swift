@@ -27,12 +27,12 @@ import Foundation
 
 /// NJOPasswordValidator validates passwords with custom rules.
 open class NJOPasswordValidator: NSObject {
-    private var _rules: [NJOPasswordRule]! = nil
+    var rules: [NJOPasswordRule] = []
 
     /// Initialize NJOPasswordValidator with an array of NJOPasswordRule.
     public convenience init(rules: [NJOPasswordRule]) {
         self.init()
-        _rules = rules
+        self.rules = rules
     }
 
     /// NJOPasswordValidator object which checks if the length of password is between 6 and 24.
@@ -53,7 +53,7 @@ open class NJOPasswordValidator: NSObject {
     open func validatePassword(password: String) -> [NJOPasswordRule]? {
         var failingRules: [NJOPasswordRule] = []
 
-        for rule in _rules {
+        for rule in rules {
             if rule.evaluateWithString(string: password) {
                 failingRules.insert(rule, at: failingRules.count)
             }

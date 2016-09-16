@@ -56,7 +56,7 @@ public enum NJORequiredCharacterRulePreset {
 
 /// NJOAllowedCharacterRule checks if the password only has allowed characters.
 open class NJOAllowedCharacterRule: NSObject, NJOPasswordRule {
-    private var disallowedCharacters: CharacterSet! = nil
+    var disallowedCharacters: CharacterSet? = nil
 
     /// Initialize with an NSCharacterSet object.
     public convenience init(characterSet: CharacterSet) {
@@ -66,7 +66,7 @@ open class NJOAllowedCharacterRule: NSObject, NJOPasswordRule {
 
     /// Evaluate password. Return false if it is passed and true if failed.
     open func evaluateWithString(string: String) -> Bool {
-        if disallowedCharacters == nil {
+        guard let disallowedCharacters = disallowedCharacters else {
             return false
         }
 
@@ -82,42 +82,66 @@ open class NJOAllowedCharacterRule: NSObject, NJOPasswordRule {
 
 /// NJORequiredCharacterRule checks if the password contains at least one required character.
 open class NJORequiredCharacterRule: NSObject, NJOPasswordRule {
-    private var _preset: NJORequiredCharacterRulePreset! = nil
-    private var requiredCharacterSet: CharacterSet! = nil
+    private var requiredCharacterSetToCompare: CharacterSet? = nil
+
+    var requiredCharacterSet: CharacterSet? = nil {
+        didSet {
+            if let requiredCharacterSet = requiredCharacterSet {
+                preset = nil
+                updateRequiredCharacterSetToCompare(requiredCharacterSet: requiredCharacterSet)
+            }
+        }
+    }
+
+    var preset: NJORequiredCharacterRulePreset? = nil {
+        didSet {
+            if let preset = preset {
+                requiredCharacterSet = nil
+                updateRequiredCharacterSetToCompare(preset: preset)
+            }
+        }
+    }
 
     /// Initialize with an NJORequiredCharacterRulePreset object.
     public convenience init(preset: NJORequiredCharacterRulePreset) {
         self.init()
-
-        _preset = preset
-
-        switch preset {
-        case .lowercaseCharacter:
-            requiredCharacterSet = CharacterSet.lowercaseLetters
-        case .uppercaseCharacter:
-            requiredCharacterSet = CharacterSet.uppercaseLetters
-        case .decimalDigitCharacter:
-            requiredCharacterSet = CharacterSet.decimalDigits
-        case .symbolCharacter:
-            let symbolCharacterSet = NSMutableCharacterSet.symbol()
-            symbolCharacterSet.formUnion(with: CharacterSet.punctuationCharacters)
-            requiredCharacterSet = symbolCharacterSet as CharacterSet!
-        }
+        self.preset = preset
+        updateRequiredCharacterSetToCompare(preset: preset)
     }
 
     /// Initialize with an NSCharacterSet object.
     public convenience init(characterSet: CharacterSet) {
         self.init()
         requiredCharacterSet = characterSet
+        updateRequiredCharacterSetToCompare(requiredCharacterSet: characterSet)
+    }
+
+    private func updateRequiredCharacterSetToCompare(requiredCharacterSet: CharacterSet) {
+        requiredCharacterSetToCompare = requiredCharacterSet
+    }
+
+    private func updateRequiredCharacterSetToCompare(preset: NJORequiredCharacterRulePreset) {
+        switch preset {
+        case .lowercaseCharacter:
+            requiredCharacterSetToCompare = CharacterSet.lowercaseLetters
+        case .uppercaseCharacter:
+            requiredCharacterSetToCompare = CharacterSet.uppercaseLetters
+        case .decimalDigitCharacter:
+            requiredCharacterSetToCompare = CharacterSet.decimalDigits
+        case .symbolCharacter:
+            var symbolCharacterSet = CharacterSet.symbols
+            symbolCharacterSet.formUnion(CharacterSet.punctuationCharacters)
+            requiredCharacterSetToCompare = symbolCharacterSet
+        }
     }
 
     /// Evaluate password. Return false if it is passed and true if failed.
     open func evaluateWithString(string: String) -> Bool {
-        if requiredCharacterSet == nil {
+        guard let requiredCharacterSetToCompare = requiredCharacterSetToCompare else {
             return false
         }
 
-        return (string as NSString).rangeOfCharacter(from: requiredCharacterSet).location == NSNotFound
+        return (string as NSString).rangeOfCharacter(from: requiredCharacterSetToCompare).location == NSNotFound
     }
 
     /// Error description.
@@ -128,7 +152,7 @@ open class NJORequiredCharacterRule: NSObject, NJOPasswordRule {
     /// - Symbol error "NAVAJO_REQUIRED_CHARACTER_SYMBOL_ERROR"
     /// - Default error "NAVAJO_REQUIRED_CHARACTER_REQUIRED_ERROR"
     open func localizedErrorDescription() -> String {
-        if let preset = _preset {
+        if let preset = preset {
             switch preset {
             case .lowercaseCharacter:
                 return NSLocalizedString("NAVAJO_REQUIRED_CHARACTER_LOWERCASE_ERROR", tableName: nil, bundle: Bundle.main, value: "Must include lowercase characters", comment: "Navajo - Required lowercase character rule")
@@ -147,7 +171,7 @@ open class NJORequiredCharacterRule: NSObject, NJOPasswordRule {
 
 /// NJODictionaryWordRule checks if the password can be found on the OSX or iOS dictionary.
 open class NJODictionaryWordRule: NSObject, NJOPasswordRule {
-    private var nonLowercaseCharacterSet = CharacterSet.lowercaseLetters.inverted
+    private let nonLowercaseCharacterSet = CharacterSet.lowercaseLetters.inverted
 
     /// Evaluate password. Return false if it is passed and true if failed.
     open func evaluateWithString(string: String) -> Bool {
@@ -167,47 +191,53 @@ open class NJODictionaryWordRule: NSObject, NJOPasswordRule {
 
 /// NJOLengthRule checks the length of password.
 open class NJOLengthRule: NSObject, NJOPasswordRule {
-    private var _range: NSRange! = nil
+    var range: NSRange? = nil
 
     /// Initialize with minimum and maximum values.
     public convenience init(min: Int, max: Int) {
         self.init()
-        _range = NSMakeRange(min, max - min + 1)
+        range = NSMakeRange(min, max - min + 1)
     }
 
     /// Evaluate password. Return false if it is passed and true if failed.
     open func evaluateWithString(string: String) -> Bool {
-        if _range == nil {
+        guard let range = range else {
             return false
         }
 
-        return !NSLocationInRange(string.characters.count, _range)
+        return !NSLocationInRange(string.characters.count, range)
     }
 
     /// Error description.
     /// Localization Key - "NAVAJO_LENGTH_ERROR"
     open func localizedErrorDescription() -> String {
-        return NSLocalizedString("NAVAJO_LENGTH_ERROR", tableName: nil, bundle: Bundle.main, value: "Must be within range ", comment: "Navajo - Length rule") + NSStringFromRange(_range)
+        var rangeDescription = "nil"
+
+        if let range = range {
+            rangeDescription = NSStringFromRange(range)
+        }
+
+        return NSLocalizedString("NAVAJO_LENGTH_ERROR", tableName: nil, bundle: Bundle.main, value: "Must be within range ", comment: "Navajo - Length rule") + rangeDescription
     }
 }
 
 /// NJOPredicateRule checks password with a NSPredicate object.
 open class NJOPredicateRule: NSObject, NJOPasswordRule {
-    private var _predicate: NSPredicate! = nil
+    var predicate: NSPredicate? = nil
 
     /// Initialize with an NSPredicate object.
     public convenience init(predicate: NSPredicate) {
         self.init()
-        _predicate = predicate
+        self.predicate = predicate
     }
 
     /// Evaluate password. Return false if it is passed and true if failed.
     open func evaluateWithString(string: String) -> Bool {
-        if _predicate == nil {
+        guard let predicate = predicate else {
             return false
         }
 
-        return _predicate.evaluate(with: string)
+        return predicate.evaluate(with: string)
     }
 
     /// Error description.
@@ -219,21 +249,21 @@ open class NJOPredicateRule: NSObject, NJOPasswordRule {
 
 /// NJORegularExpressionRule checks password with a NSRegularExpression object.
 open class NJORegularExpressionRule: NSObject, NJOPasswordRule {
-    private var _regularExpression: NSRegularExpression! = nil
+    var regularExpression: NSRegularExpression? = nil
 
     /// Initialize with an NSRegularExpression object.
     public convenience init(regularExpression: NSRegularExpression) {
         self.init()
-        _regularExpression = regularExpression
+        self.regularExpression = regularExpression
     }
 
     /// Evaluate password. Return false if it is passed and true if failed.
     open func evaluateWithString(string: String) -> Bool {
-        if _regularExpression == nil {
+        guard let regularExpression = regularExpression else {
             return false
         }
 
-        return _regularExpression.numberOfMatches(in: string, options: [], range: NSMakeRange(0, string.characters.count)) > 0
+        return regularExpression.numberOfMatches(in: string, options: [], range: NSMakeRange(0, string.characters.count)) > 0
     }
 
     /// Error description.
@@ -245,21 +275,21 @@ open class NJORegularExpressionRule: NSObject, NJOPasswordRule {
 
 /// NJOBlockRule checks password with a block which gets a string and returns a bool value.
 open class NJOBlockRule: NSObject, NJOPasswordRule {
-    private var _evaluation: ((String) -> Bool)! = nil
+    var evaluation: ((String) -> Bool)? = nil
 
     /// Initialize with a Block.
     public convenience init(evaluation: @escaping (String) -> Bool) {
         self.init()
-        _evaluation = evaluation
+        self.evaluation = evaluation
     }
 
     /// Evaluate password. Return false if it is passed and true if failed.
     open func evaluateWithString(string: String) -> Bool {
-        if _evaluation == nil {
+        guard let evaluation = evaluation else {
             return false
         }
 
-        return _evaluation(string)
+        return evaluation(string)
     }
 
     /// Error description.
