@@ -29,80 +29,82 @@ import Foundation
 /// The entropy value is evaluated by infromation entropy theory.
 public enum NJOPasswordStrength {
     /// Entropy value is smaller than 28
-    case VeryWeak
+    case veryWeak
     /// Entropy value is between 28 and 35
-    case Weak
+    case weak
     /// Entropy value is between 36 and 59
-    case Reasonable
+    case reasonable
     /// Entropy value is between 60 and 127
-    case Strong
+    case strong
     /// Entropy value is larger than 127
-    case VeryStrong
+    case veryStrong
 }
 
 /// Navajo validates strength of passwords.
-public class Navajo: NSObject {
+open class Navajo: NSObject {
 
     /**
         Gets strength of a password.
         - Parameter password: Password string to be calculated
         - Returns: Level of strength in NJOPasswordStrength
     */
-    public class func strengthOfPassword(password: String) -> NJOPasswordStrength {
-        return NJOPasswordStrengthForEntropy(NJOEntropyForString(password))
+    open class func strengthOfPassword(password: String) -> NJOPasswordStrength {
+        return NJOPasswordStrengthForEntropy(entropy: NJOEntropyForString(password))
     }
 
     /// Converts NJOPasswordStrength to localized string.
-    public class func localizedStringForPasswordStrength(strength: NJOPasswordStrength) -> String {
+    open class func localizedStringForPasswordStrength(strength: NJOPasswordStrength) -> String {
         switch strength {
-        case .VeryWeak:
-            return NSLocalizedString("NAVAJO_VERY_WEAK", tableName: nil, bundle: NSBundle.mainBundle(), value: "Very Weak", comment: "Navajo - Very weak")
-        case .Weak:
-            return NSLocalizedString("NAVAJO_WEAK", tableName: nil, bundle: NSBundle.mainBundle(), value: "Weak", comment: "Navajo - Weak")
-        case .Reasonable:
-            return NSLocalizedString("NAVAJO_REASONABLE", tableName: nil, bundle: NSBundle.mainBundle(), value: "Reasonable", comment: "Navajo - Reasonable")
-        case .Strong:
-            return NSLocalizedString("NAVAJO_STRONG", tableName: nil, bundle: NSBundle.mainBundle(), value: "Strong", comment: "Navajo - Strong")
-        case .VeryStrong:
-            return NSLocalizedString("NAVAJO_VERY_STRONG", tableName: nil, bundle: NSBundle.mainBundle(), value: "Very Strong", comment: "Navajo - Very Strong")
+        case .veryWeak:
+            return NSLocalizedString("NAVAJO_VERY_WEAK", tableName: nil, bundle: Bundle.main, value: "Very Weak", comment: "Navajo - Very weak")
+        case .weak:
+            return NSLocalizedString("NAVAJO_WEAK", tableName: nil, bundle: Bundle.main, value: "Weak", comment: "Navajo - Weak")
+        case .reasonable:
+            return NSLocalizedString("NAVAJO_REASONABLE", tableName: nil, bundle: Bundle.main, value: "Reasonable", comment: "Navajo - Reasonable")
+        case .strong:
+            return NSLocalizedString("NAVAJO_STRONG", tableName: nil, bundle: Bundle.main, value: "Strong", comment: "Navajo - Strong")
+        case .veryStrong:
+            return NSLocalizedString("NAVAJO_VERY_STRONG", tableName: nil, bundle: Bundle.main, value: "Very Strong", comment: "Navajo - Very Strong")
         }
     }
 
-    private class func NJOEntropyForString(string: String) -> Float {
-        if string.characters.count == 0 {
+    private class func NJOEntropyForString(_ string: String) -> Float {
+        guard string.characters.count > 0 else {
             return 0.0
         }
 
         var sizeOfCharacterSet: Float = 0
 
-        (string as NSString).enumerateSubstringsInRange(NSMakeRange(0, string.characters.count), options: NSStringEnumerationOptions.ByComposedCharacterSequences) { ( substring, substringRange, enclosingRange, stop) -> () in
-            let char = (substring! as NSString).characterAtIndex(0)
+        string.enumerateSubstrings(in: string.startIndex ..< string.endIndex, options: String.EnumerationOptions.byComposedCharacterSequences) { subString, _, _, _ in
+            guard let subString = subString, let unicodeScalar = UnicodeScalar((subString as NSString).character(at: 0)) else {
+                return
+            }
 
-            if NSCharacterSet.lowercaseLetterCharacterSet().characterIsMember(char) {
+            if CharacterSet.lowercaseLetters.contains(unicodeScalar) {
                 sizeOfCharacterSet += 26
             }
 
-            if NSCharacterSet.uppercaseLetterCharacterSet().characterIsMember(char) {
+            if CharacterSet.uppercaseLetters.contains(unicodeScalar) {
                 sizeOfCharacterSet += 26
             }
 
-            if NSCharacterSet.decimalDigitCharacterSet().characterIsMember(char) {
+            if CharacterSet.decimalDigits.contains(unicodeScalar) {
                 sizeOfCharacterSet += 10
             }
 
-            if NSCharacterSet.symbolCharacterSet().characterIsMember(char) {
+            if CharacterSet.symbols.contains(unicodeScalar) {
                 sizeOfCharacterSet += 10
             }
 
-            if NSCharacterSet.punctuationCharacterSet().characterIsMember(char) {
+            if CharacterSet.punctuationCharacters.contains(unicodeScalar) {
                 sizeOfCharacterSet += 20
             }
 
-            if NSCharacterSet.whitespaceAndNewlineCharacterSet().characterIsMember(char) {
+            if CharacterSet.whitespacesAndNewlines.contains(unicodeScalar) {
                 sizeOfCharacterSet += 1
             }
 
-            if NSCharacterSet.nonBaseCharacterSet().characterIsMember(char) {
+            if CharacterSet.nonBaseCharacters.contains(unicodeScalar) {
                 sizeOfCharacterSet += 32 + 128
             }
         }
@@ -112,15 +114,15 @@ public class Navajo: NSObject {
 
     private class func NJOPasswordStrengthForEntropy(entropy: Float) -> NJOPasswordStrength {
         if entropy < 28 {
-            return .VeryWeak
+            return .veryWeak
         } else if entropy < 36 {
-            return .Weak
+            return .weak
         } else if entropy < 60 {
-            return .Reasonable
+            return .reasonable
         } else if entropy < 128 {
-            return .Strong
+            return .strong
         } else {
-            return .VeryStrong
+            return .veryStrong
         }
     }
 }
