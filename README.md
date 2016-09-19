@@ -54,9 +54,9 @@ Just copy the files in Source folder into your project.
 @IBOutlet private weak var strengthLabel: UILabel! = nil
 
 let password = passwordField.text ?? ""
-let strength = Navajo.strengthOfPassword(password: password)
+let strength = Navajo.strength(of: password)
 
-strengthLabel.text = Navajo.localizedStringForPasswordStrength(strength: strength)
+strengthLabel.text = Navajo.localizedString(for: strength)
 ```
 
 ### Validating Password
@@ -67,11 +67,11 @@ var uppercaseRule = NJORequiredCharacterRule(preset: .LowercaseCharacter)
 
 validator = NJOPasswordValidator(rules: [lengthRule, uppercaseRule])
 
-if let failingRules = validator.validatePassword(password: "PASSWORD") {
+if let failingRules = validator.validate(password) {
     var errorMessages: [String] = []
 
     failingRules.forEach { rule in
-        errorMessages.append(rule.localizedErrorDescription())
+        errorMessages.append(rule.localizedErrorDescription)
     }
 
     validationLabel.textColor = UIColor.red

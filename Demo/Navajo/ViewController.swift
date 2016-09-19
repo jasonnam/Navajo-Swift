@@ -29,7 +29,7 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var strengthLabel: UILabel! = nil
     @IBOutlet private weak var validationLabel: UILabel! = nil
 
-    private var validator = NJOPasswordValidator.standardValidator()
+    private var validator = NJOPasswordValidator.standardValidator
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -47,7 +47,7 @@ final class ViewController: UIViewController {
 
             validator = NJOPasswordValidator(rules: [lengthRule, emailFilteringRule])
         } else {
-            validator = NJOPasswordValidator.standardValidator()
+            validator = NJOPasswordValidator.standardValidator
         }
 
         checkPassword()
@@ -55,15 +55,15 @@ final class ViewController: UIViewController {
 
     private func checkPassword() {
         let password = passwordField.text ?? ""
-        let strength = Navajo.strengthOfPassword(password: password)
+        let strength = Navajo.strength(of: password)
 
-        strengthLabel.text = Navajo.localizedStringForPasswordStrength(strength: strength)
+        strengthLabel.text = Navajo.localizedString(for: strength)
 
-        if let failingRules = validator.validatePassword(password: password) {
+        if let failingRules = validator.validate(password) {
             var errorMessages: [String] = []
 
             failingRules.forEach { rule in
-                errorMessages.append(rule.localizedErrorDescription())
+                errorMessages.append(rule.localizedErrorDescription)
             }
 
             validationLabel.textColor = UIColor.red

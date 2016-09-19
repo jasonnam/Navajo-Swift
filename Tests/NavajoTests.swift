@@ -41,96 +41,96 @@ class NavajoTests: XCTestCase {
     func testAllowedCharacterRule() {
         let ruleWithoutInitialCharacterSet = NJOAllowedCharacterRule()
 
-        XCTAssert(ruleWithoutInitialCharacterSet.evaluateWithString(string: "PASSWORD") == false, "Allowed character rule not ignored")
+        XCTAssert(ruleWithoutInitialCharacterSet.evaluate("PASSWORD") == false, "Allowed character rule not ignored")
 
 
         let ruleWithInitialCharacterSet = NJOAllowedCharacterRule(characterSet: CharacterSet(charactersIn: "abc"))
 
-        XCTAssert(ruleWithInitialCharacterSet.evaluateWithString(string: "abcd") == true, "Disallowed characters are not filtered out")
-        XCTAssert(ruleWithInitialCharacterSet.evaluateWithString(string: "aaa") == false, "Allowed characters are used but failed to pass")
-        XCTAssert(ruleWithInitialCharacterSet.evaluateWithString(string: "aabbccaaabbbcccaaaabbbbcccc") == false, "Allowed characters are used but failed to pass")
+        XCTAssert(ruleWithInitialCharacterSet.evaluate("abcd") == true, "Disallowed characters are not filtered out")
+        XCTAssert(ruleWithInitialCharacterSet.evaluate("aaa") == false, "Allowed characters are used but failed to pass")
+        XCTAssert(ruleWithInitialCharacterSet.evaluate("aabbccaaabbbcccaaaabbbbcccc") == false, "Allowed characters are used but failed to pass")
     }
 
     func testRequiredCharacterRule() {
         let ruleWithoutInitialOption = NJORequiredCharacterRule()
 
-        XCTAssert(ruleWithoutInitialOption.evaluateWithString(string: "PASSWORD") == false, "Required character rule without initial option not ignored")
+        XCTAssert(ruleWithoutInitialOption.evaluate("PASSWORD") == false, "Required character rule without initial option not ignored")
 
 
         let ruleWithRequiredCharacters = NJORequiredCharacterRule(characterSet: CharacterSet(charactersIn: "!@#ABCabc"))
 
-        XCTAssert(ruleWithRequiredCharacters.evaluateWithString(string: "!d@e#fAgBhCabc") == false, "All of the required characters are used but not passed")
-        XCTAssert(ruleWithRequiredCharacters.evaluateWithString(string: "!d@e#fAg") == false, "Some of the required characters are used but not passed")
-        XCTAssert(ruleWithRequiredCharacters.evaluateWithString(string: "deg$%^") == true, "Required characters are not used but passed")
+        XCTAssert(ruleWithRequiredCharacters.evaluate("!d@e#fAgBhCabc") == false, "All of the required characters are used but not passed")
+        XCTAssert(ruleWithRequiredCharacters.evaluate("!d@e#fAg") == false, "Some of the required characters are used but not passed")
+        XCTAssert(ruleWithRequiredCharacters.evaluate("deg$%^") == true, "Required characters are not used but passed")
 
 
         let ruleWithInitialLowercasePreset = NJORequiredCharacterRule(preset: .lowercaseCharacter)
 
-        XCTAssert(ruleWithInitialLowercasePreset.evaluateWithString(string: "Abcdef12345!@#") == false, "Some of the characters are lowercase but not passed")
-        XCTAssert(ruleWithInitialLowercasePreset.evaluateWithString(string: "ABCDEF12345!@#") == true, "All of them are uppercase but passed")
+        XCTAssert(ruleWithInitialLowercasePreset.evaluate("Abcdef12345!@#") == false, "Some of the characters are lowercase but not passed")
+        XCTAssert(ruleWithInitialLowercasePreset.evaluate("ABCDEF12345!@#") == true, "All of them are uppercase but passed")
 
 
         let ruleWithInitialUppercasePreset = NJORequiredCharacterRule(preset: .uppercaseCharacter)
 
-        XCTAssert(ruleWithInitialUppercasePreset.evaluateWithString(string: "AbcDef12345!@#") == false, "Some of the characters are uppercase but not passed")
-        XCTAssert(ruleWithInitialUppercasePreset.evaluateWithString(string: "abcdef12345!@#") == true, "All of them are lowercase but passed")
+        XCTAssert(ruleWithInitialUppercasePreset.evaluate("AbcDef12345!@#") == false, "Some of the characters are uppercase but not passed")
+        XCTAssert(ruleWithInitialUppercasePreset.evaluate("abcdef12345!@#") == true, "All of them are lowercase but passed")
 
 
         let ruleWithInitialDecimalDigitPreset = NJORequiredCharacterRule(preset: .decimalDigitCharacter)
 
-        XCTAssert(ruleWithInitialDecimalDigitPreset.evaluateWithString(string: "Abcdef12345!@#") == false, "Some of the characters are decimal digits but not passed")
-        XCTAssert(ruleWithInitialDecimalDigitPreset.evaluateWithString(string: "abcdef!@#") == true, "No decimal digits but passed")
+        XCTAssert(ruleWithInitialDecimalDigitPreset.evaluate("Abcdef12345!@#") == false, "Some of the characters are decimal digits but not passed")
+        XCTAssert(ruleWithInitialDecimalDigitPreset.evaluate("abcdef!@#") == true, "No decimal digits but passed")
 
 
         let ruleWithInitialSymbolPreset = NJORequiredCharacterRule(preset: .symbolCharacter)
 
-        XCTAssert(ruleWithInitialSymbolPreset.evaluateWithString(string: "Abcdef12345!") == false, "Some of the characters are symbols but not passed")
-        XCTAssert(ruleWithInitialSymbolPreset.evaluateWithString(string: "abcdef") == true, "No symbols but passed")
+        XCTAssert(ruleWithInitialSymbolPreset.evaluate("Abcdef12345!") == false, "Some of the characters are symbols but not passed")
+        XCTAssert(ruleWithInitialSymbolPreset.evaluate("abcdef") == true, "No symbols but passed")
     }
 
     func testLengthRule() {
         let ruleWithoutInitialRange = NJOLengthRule()
 
-        XCTAssert(ruleWithoutInitialRange.evaluateWithString(string: "PASSWORD") == false, "Length rule without initial range but not ignored")
+        XCTAssert(ruleWithoutInitialRange.evaluate("PASSWORD") == false, "Length rule without initial range but not ignored")
 
 
         let ruleWithInitialRange = NJOLengthRule(min: 6, max: 9)
 
-        XCTAssert(ruleWithInitialRange.evaluateWithString(string: "12345") == true, "Password is too short but passed")
-        XCTAssert(ruleWithInitialRange.evaluateWithString(string: "123456") == false, "Password is in range but not passed")
-        XCTAssert(ruleWithInitialRange.evaluateWithString(string: "123456789") == false, "Password is in range but not passed")
-        XCTAssert(ruleWithInitialRange.evaluateWithString(string: "1234567890") == true, "Password is too long but passed")
+        XCTAssert(ruleWithInitialRange.evaluate("12345") == true, "Password is too short but passed")
+        XCTAssert(ruleWithInitialRange.evaluate("123456") == false, "Password is in range but not passed")
+        XCTAssert(ruleWithInitialRange.evaluate("123456789") == false, "Password is in range but not passed")
+        XCTAssert(ruleWithInitialRange.evaluate("1234567890") == true, "Password is too long but passed")
     }
 
     func testPredicateRule() {
         let ruleWithoutInitialPredicate = NJOPredicateRule()
 
-        XCTAssert(ruleWithoutInitialPredicate.evaluateWithString(string: "PASSWORD") == false, "Length rule without initial predicate but not ignored")
+        XCTAssert(ruleWithoutInitialPredicate.evaluate("PASSWORD") == false, "Length rule without initial predicate but not ignored")
 
 
         let ruleWithInitialPredicate = NJOPredicateRule(predicate: NSPredicate(format: "SELF BEGINSWITH %@", "PASSWORD"))
 
-        XCTAssert(ruleWithInitialPredicate.evaluateWithString(string: "PASSWORDINPUT!") == true, "Password begins with PASSWORD but passed")
-        XCTAssert(ruleWithInitialPredicate.evaluateWithString(string: "PASS") == false, "Password doesn't begin with PASSWORD but not passed")
+        XCTAssert(ruleWithInitialPredicate.evaluate("PASSWORDINPUT!") == true, "Password begins with PASSWORD but passed")
+        XCTAssert(ruleWithInitialPredicate.evaluate("PASS") == false, "Password doesn't begin with PASSWORD but not passed")
     }
 
     func testRegexRule() {
         let ruleWithoutInitialRegex = NJORegularExpressionRule()
 
-        XCTAssert(ruleWithoutInitialRegex.evaluateWithString(string: "PASSWORD") == false, "Length rule without initial regex but not ignored")
+        XCTAssert(ruleWithoutInitialRegex.evaluate("PASSWORD") == false, "Length rule without initial regex but not ignored")
 
 
         // Email Regex
         let ruleWithInitialRegex = NJORegularExpressionRule(regularExpression: try! NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}", options: []))
 
-        XCTAssert(ruleWithInitialRegex.evaluateWithString(string: "contact@jasonnam.com") == true, "Password is an email but passed")
-        XCTAssert(ruleWithInitialRegex.evaluateWithString(string: "PASSWORD") == false, "Password is not an email but not passed")
+        XCTAssert(ruleWithInitialRegex.evaluate("contact@jasonnam.com") == true, "Password is an email but passed")
+        XCTAssert(ruleWithInitialRegex.evaluate("PASSWORD") == false, "Password is not an email but not passed")
     }
 
     func testBlockRule() {
         let ruleWithoutInitialBlock = NJOBlockRule()
 
-        XCTAssert(ruleWithoutInitialBlock.evaluateWithString(string: "PASSWORD") == false, "Length rule without initial block but not ignored")
+        XCTAssert(ruleWithoutInitialBlock.evaluate("PASSWORD") == false, "Length rule without initial block but not ignored")
 
 
         let ruleWithInitialBlock = NJOBlockRule() { (password: String) in
@@ -138,7 +138,7 @@ class NavajoTests: XCTestCase {
             return emailRegex.numberOfMatches(in: password, options: [], range: NSMakeRange(0, password.characters.count)) > 0
         }
 
-        XCTAssert(ruleWithInitialBlock.evaluateWithString(string: "contact@jasonnam.com") == true, "Password is an email but passed")
-        XCTAssert(ruleWithInitialBlock.evaluateWithString(string: "PASSWORD") == false, "Password is not an email but not passed")
+        XCTAssert(ruleWithInitialBlock.evaluate("contact@jasonnam.com") == true, "Password is an email but passed")
+        XCTAssert(ruleWithInitialBlock.evaluate("PASSWORD") == false, "Password is not an email but not passed")
     }
 }

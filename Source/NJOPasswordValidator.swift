@@ -27,34 +27,38 @@ import Foundation
 
 /// NJOPasswordValidator validates passwords with custom rules.
 open class NJOPasswordValidator: NSObject {
-    var rules: [NJOPasswordRule] = []
+    open var rules: [NJOPasswordRule] = []
 
     /// Initialize NJOPasswordValidator with an array of NJOPasswordRule.
+    ///
+    /// - parameter rules: Password rule(s)
+    ///
+    /// - returns: Password validator
     public convenience init(rules: [NJOPasswordRule]) {
         self.init()
         self.rules = rules
     }
 
     /// NJOPasswordValidator object which checks if the length of password is between 6 and 24.
-    open class func standardValidator() -> NJOPasswordValidator {
-        return NJOPasswordValidator(rules: [standardLengthRule()])
+    open class var standardValidator: NJOPasswordValidator {
+        return NJOPasswordValidator(rules: [standardLengthRule])
     }
 
     /// Length rule having minimum of 6 and maximum of 24.
-    open class func standardLengthRule() -> NJOLengthRule {
+    open class var standardLengthRule: NJOLengthRule {
         return NJOLengthRule(min: 6, max: 24)
     }
 
-    /**
-        Executes validation with a password and returns failing rules.
-        - Parameter password: Password string to be validated
-        - Returns: Failing rules. nil if all of the rules are passed.
-    */
-    open func validatePassword(password: String) -> [NJOPasswordRule]? {
+    /// Executes validation with a password and returns failing rules.
+    ///
+    /// - parameter password: Password string to be validated
+    ///
+    /// - returns: Failing rules. nil if all of the rules are passed.
+    open func validate(_ password: String) -> [NJOPasswordRule]? {
         var failingRules: [NJOPasswordRule] = []
 
         for rule in rules {
-            if rule.evaluateWithString(string: password) {
+            if rule.evaluate(password) {
                 failingRules.insert(rule, at: failingRules.count)
             }
         }
