@@ -76,6 +76,14 @@ open class Navajo: NSObject {
             return 0.0
         }
 
+        var includesLowercaseCharacter = false,
+            includesUppercaseCharacter = false,
+            includesDecimalDigitCharacter = false,
+            includesPunctuationCharacter = false,
+            includesSymbolCharacter = false,
+            includesWhitespaceCharacter = false,
+            includesNonBaseCharacter = false
+
         var sizeOfCharacterSet: Float = 0
 
         string.enumerateSubstrings(in: string.startIndex ..< string.endIndex, options: String.EnumerationOptions.byComposedCharacterSequences) { subString, _, _, _ in
@@ -83,31 +91,38 @@ open class Navajo: NSObject {
                 return
             }
 
-            if CharacterSet.lowercaseLetters.contains(unicodeScalar) {
+            if !includesLowercaseCharacter && CharacterSet.lowercaseLetters.contains(unicodeScalar) {
+                includesLowercaseCharacter = true
                 sizeOfCharacterSet += 26
             }
 
-            if CharacterSet.uppercaseLetters.contains(unicodeScalar) {
+            if !includesUppercaseCharacter && CharacterSet.uppercaseLetters.contains(unicodeScalar) {
+                includesUppercaseCharacter = true
                 sizeOfCharacterSet += 26
             }
 
-            if CharacterSet.decimalDigits.contains(unicodeScalar) {
+            if !includesDecimalDigitCharacter && CharacterSet.decimalDigits.contains(unicodeScalar) {
+                includesDecimalDigitCharacter = true
                 sizeOfCharacterSet += 10
             }
 
-            if CharacterSet.symbols.contains(unicodeScalar) {
+            if !includesSymbolCharacter && CharacterSet.symbols.contains(unicodeScalar) {
+                includesSymbolCharacter = true
                 sizeOfCharacterSet += 10
             }
 
-            if CharacterSet.punctuationCharacters.contains(unicodeScalar) {
+            if !includesPunctuationCharacter && CharacterSet.punctuationCharacters.contains(unicodeScalar) {
+                includesPunctuationCharacter = true
                 sizeOfCharacterSet += 20
             }
 
-            if CharacterSet.whitespacesAndNewlines.contains(unicodeScalar) {
+            if !includesWhitespaceCharacter && CharacterSet.whitespacesAndNewlines.contains(unicodeScalar) {
+                includesWhitespaceCharacter = true
                 sizeOfCharacterSet += 1
             }
 
-            if CharacterSet.nonBaseCharacters.contains(unicodeScalar) {
+            if !includesNonBaseCharacter && CharacterSet.nonBaseCharacters.contains(unicodeScalar) {
+                includesNonBaseCharacter = true
                 sizeOfCharacterSet += 32 + 128
             }
         }
