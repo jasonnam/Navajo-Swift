@@ -41,7 +41,7 @@ public enum NJOPasswordStrength {
 }
 
 /// Navajo validates strength of passwords.
-open class Navajo: NSObject {
+open class Navajo {
     /// Gets strength of a password.
     ///
     /// - parameter password: Password string to be calculated
