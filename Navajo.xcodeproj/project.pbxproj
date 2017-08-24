@@ -39,7 +39,7 @@
 		EC8646381BC7549300332F2E /* Navajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646351BC7549300332F2E /* Navajo.swift */; };
 		EC8646391BC7549300332F2E /* PasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646361BC7549300332F2E /* PasswordRule.swift */; };
 		EC86463A1BC7549300332F2E /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646371BC7549300332F2E /* PasswordValidator.swift */; };
-		EC86463D1BC754DA00332F2E /* NavajoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC86463B1BC754A400332F2E /* NavajoTests.swift */; };
+		EC86463D1BC754DA00332F2E /* RuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC86463B1BC754A400332F2E /* RuleTests.swift */; };
 		EC86463E1BC754DC00332F2E /* Navajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646351BC7549300332F2E /* Navajo.swift */; };
 		EC86463F1BC754DF00332F2E /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646371BC7549300332F2E /* PasswordValidator.swift */; };
 		EC8646401BC754E100332F2E /* PasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646361BC7549300332F2E /* PasswordRule.swift */; };
@@ -52,7 +52,7 @@
 		ECE8E6931C2857BC00EC53BA /* Navajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646351BC7549300332F2E /* Navajo.swift */; };
 		ECE8E6941C2857BC00EC53BA /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646371BC7549300332F2E /* PasswordValidator.swift */; };
 		ECE8E6951C2857BC00EC53BA /* PasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8646361BC7549300332F2E /* PasswordRule.swift */; };
-		ECE8E6961C2857BC00EC53BA /* NavajoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC86463B1BC754A400332F2E /* NavajoTests.swift */; };
+		ECE8E6961C2857BC00EC53BA /* RuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC86463B1BC754A400332F2E /* RuleTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +86,7 @@
 		EC8646351BC7549300332F2E /* Navajo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navajo.swift; path = Source/Navajo.swift; sourceTree = SOURCE_ROOT; };
 		EC8646361BC7549300332F2E /* PasswordRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordRule.swift; path = Source/PasswordRule.swift; sourceTree = SOURCE_ROOT; };
 		EC8646371BC7549300332F2E /* PasswordValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordValidator.swift; path = Source/PasswordValidator.swift; sourceTree = SOURCE_ROOT; };
-		EC86463B1BC754A400332F2E /* NavajoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavajoTests.swift; path = Tests/NavajoTests.swift; sourceTree = SOURCE_ROOT; };
+		EC86463B1BC754A400332F2E /* RuleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuleTests.swift; path = Tests/RuleTests.swift; sourceTree = SOURCE_ROOT; };
 		ECD5E0931CBB94A100D4A07A /* Navajo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Navajo.h; path = Source/Navajo.h; sourceTree = SOURCE_ROOT; };
 		ECE8E6771C28070800EC53BA /* Navajo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Navajo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE8E6881C28571000EC53BA /* Navajo OSX Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Navajo OSX Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,7 +169,7 @@
 		EC86461B1BC74ED100332F2E /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				EC86463B1BC754A400332F2E /* NavajoTests.swift */,
+				EC86463B1BC754A400332F2E /* RuleTests.swift */,
 				EC86461E1BC74ED100332F2E /* Info.plist */,
 			);
 			path = Tests;
@@ -372,7 +372,7 @@
 			files = (
 				EC08B3811F4EFF8B009CD07B /* RegularExpressionRule.swift in Sources */,
 				EC08B3771F4EFF7C009CD07B /* AllowedCharacterRule.swift in Sources */,
-				EC86463D1BC754DA00332F2E /* NavajoTests.swift in Sources */,
+				EC86463D1BC754DA00332F2E /* RuleTests.swift in Sources */,
 				EC08B37F1F4EFF88009CD07B /* PredicateRule.swift in Sources */,
 				EC08B3831F4EFF8E009CD07B /* BlockRule.swift in Sources */,
 				EC08B3791F4EFF7F009CD07B /* RequiredCharacterRule.swift in Sources */,
@@ -407,7 +407,7 @@
 			files = (
 				EC08B3821F4EFF8C009CD07B /* RegularExpressionRule.swift in Sources */,
 				EC08B3781F4EFF7C009CD07B /* AllowedCharacterRule.swift in Sources */,
-				ECE8E6961C2857BC00EC53BA /* NavajoTests.swift in Sources */,
+				ECE8E6961C2857BC00EC53BA /* RuleTests.swift in Sources */,
 				EC08B3801F4EFF89009CD07B /* PredicateRule.swift in Sources */,
 				EC08B3841F4EFF8F009CD07B /* BlockRule.swift in Sources */,
 				EC08B37A1F4EFF7F009CD07B /* RequiredCharacterRule.swift in Sources */,

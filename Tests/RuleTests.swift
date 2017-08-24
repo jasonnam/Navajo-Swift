@@ -1,5 +1,5 @@
 //
-// NavajoTests.swift
+// RuleTests.swift
 //
 // Copyright (c) 2015-2017 Jason Nam (http://www.jasonnam.com)
 //
@@ -29,7 +29,7 @@
 #endif
 import XCTest
 
-class NavajoTests: XCTestCase {
+class RuleTests: XCTestCase {
 
     func testAllowedCharacterRule() {
         let ruleWithoutInitialCharacterSet = AllowedCharacterRule()
