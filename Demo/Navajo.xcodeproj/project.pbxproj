@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC0089F11F4F09E600EECF36 /* LengthRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0089E81F4F09E500EECF36 /* LengthRule.swift */; };
+		EC0089F21F4F09E600EECF36 /* RegularExpressionRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0089E91F4F09E500EECF36 /* RegularExpressionRule.swift */; };
+		EC0089F31F4F09E600EECF36 /* BlockRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0089EA1F4F09E500EECF36 /* BlockRule.swift */; };
+		EC0089F41F4F09E600EECF36 /* PasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0089EB1F4F09E500EECF36 /* PasswordRule.swift */; };
+		EC0089F51F4F09E600EECF36 /* AllowedCharacterRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0089EC1F4F09E500EECF36 /* AllowedCharacterRule.swift */; };
+		EC0089F61F4F09E600EECF36 /* RequiredCharacterRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0089ED1F4F09E500EECF36 /* RequiredCharacterRule.swift */; };
+		EC0089F71F4F09E600EECF36 /* PredicateRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0089EE1F4F09E500EECF36 /* PredicateRule.swift */; };
+		EC0089F81F4F09E600EECF36 /* DictionaryWordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0089EF1F4F09E600EECF36 /* DictionaryWordRule.swift */; };
+		EC0089F91F4F09E600EECF36 /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0089F01F4F09E600EECF36 /* PasswordValidator.swift */; };
 		EC8056C91B91E13D00AA1CD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8056C81B91E13D00AA1CD1 /* AppDelegate.swift */; };
 		EC8056CB1B91E13D00AA1CD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8056CA1B91E13D00AA1CD1 /* ViewController.swift */; };
 		EC8056CE1B91E13D00AA1CD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8056CC1B91E13D00AA1CD1 /* Main.storyboard */; };
@@ -14,11 +23,18 @@
 		EC8056D31B91E13D00AA1CD1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC8056D11B91E13D00AA1CD1 /* LaunchScreen.xib */; };
 		EC8056EB1B91E1E000AA1CD1 /* Navajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8056EA1B91E1E000AA1CD1 /* Navajo.swift */; };
 		EC8056EF1B91E2C500AA1CD1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC8056ED1B91E2C500AA1CD1 /* Localizable.strings */; };
-		EC8645F31BC747EB00332F2E /* NJOPasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8645F21BC747EB00332F2E /* NJOPasswordValidator.swift */; };
-		EC8645F51BC7484F00332F2E /* NJOPasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8645F41BC7484F00332F2E /* NJOPasswordRule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC0089E81F4F09E500EECF36 /* LengthRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LengthRule.swift; path = ../../Source/LengthRule.swift; sourceTree = "<group>"; };
+		EC0089E91F4F09E500EECF36 /* RegularExpressionRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegularExpressionRule.swift; path = ../../Source/RegularExpressionRule.swift; sourceTree = "<group>"; };
+		EC0089EA1F4F09E500EECF36 /* BlockRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockRule.swift; path = ../../Source/BlockRule.swift; sourceTree = "<group>"; };
+		EC0089EB1F4F09E500EECF36 /* PasswordRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordRule.swift; path = ../../Source/PasswordRule.swift; sourceTree = "<group>"; };
+		EC0089EC1F4F09E500EECF36 /* AllowedCharacterRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllowedCharacterRule.swift; path = ../../Source/AllowedCharacterRule.swift; sourceTree = "<group>"; };
+		EC0089ED1F4F09E500EECF36 /* RequiredCharacterRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequiredCharacterRule.swift; path = ../../Source/RequiredCharacterRule.swift; sourceTree = "<group>"; };
+		EC0089EE1F4F09E500EECF36 /* PredicateRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PredicateRule.swift; path = ../../Source/PredicateRule.swift; sourceTree = "<group>"; };
+		EC0089EF1F4F09E600EECF36 /* DictionaryWordRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryWordRule.swift; path = ../../Source/DictionaryWordRule.swift; sourceTree = "<group>"; };
+		EC0089F01F4F09E600EECF36 /* PasswordValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordValidator.swift; path = ../../Source/PasswordValidator.swift; sourceTree = "<group>"; };
 		EC8056C31B91E13D00AA1CD1 /* Navajo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navajo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC8056C71B91E13D00AA1CD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC8056C81B91E13D00AA1CD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -26,13 +42,9 @@
 		EC8056CD1B91E13D00AA1CD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC8056CF1B91E13D00AA1CD1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EC8056D21B91E13D00AA1CD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		EC8056DD1B91E13D00AA1CD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC8056DE1B91E13D00AA1CD1 /* NavajoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavajoTests.swift; path = ../../Tests/NavajoTests.swift; sourceTree = "<group>"; };
 		EC8056EA1B91E1E000AA1CD1 /* Navajo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navajo.swift; path = ../Source/Navajo.swift; sourceTree = SOURCE_ROOT; };
 		EC8056EE1B91E2C500AA1CD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Navajo/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EC8056F01B91E2EE00AA1CD1 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = Navajo/ko.lproj/Localizable.strings; sourceTree = "<group>"; };
-		EC8645F21BC747EB00332F2E /* NJOPasswordValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NJOPasswordValidator.swift; path = ../../Source/NJOPasswordValidator.swift; sourceTree = "<group>"; };
-		EC8645F41BC7484F00332F2E /* NJOPasswordRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NJOPasswordRule.swift; path = ../../Source/NJOPasswordRule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,8 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				EC8056C51B91E13D00AA1CD1 /* Navajo */,
-				EC8056DB1B91E13D00AA1CD1 /* NavajoTests */,
-				ECE241381D8BAF6B000CCBFD /* Framework */,
+				ECE241381D8BAF6B000CCBFD /* Navajo */,
 				EC8056C41B91E13D00AA1CD1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,23 +96,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EC8056DB1B91E13D00AA1CD1 /* NavajoTests */ = {
-			isa = PBXGroup;
-			children = (
-				EC8056DE1B91E13D00AA1CD1 /* NavajoTests.swift */,
-				EC8056DC1B91E13D00AA1CD1 /* Supporting Files */,
-			);
-			path = NavajoTests;
-			sourceTree = "<group>";
-		};
-		EC8056DC1B91E13D00AA1CD1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				EC8056DD1B91E13D00AA1CD1 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		ECE241371D8BAF60000CCBFD /* Asset */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,14 +105,20 @@
 			name = Asset;
 			sourceTree = "<group>";
 		};
-		ECE241381D8BAF6B000CCBFD /* Framework */ = {
+		ECE241381D8BAF6B000CCBFD /* Navajo */ = {
 			isa = PBXGroup;
 			children = (
 				EC8056EA1B91E1E000AA1CD1 /* Navajo.swift */,
-				EC8645F21BC747EB00332F2E /* NJOPasswordValidator.swift */,
-				EC8645F41BC7484F00332F2E /* NJOPasswordRule.swift */,
+				EC0089F01F4F09E600EECF36 /* PasswordValidator.swift */,
+				EC0089EB1F4F09E500EECF36 /* PasswordRule.swift */,
+				EC0089EC1F4F09E500EECF36 /* AllowedCharacterRule.swift */,
+				EC0089ED1F4F09E500EECF36 /* RequiredCharacterRule.swift */,
+				EC0089EF1F4F09E600EECF36 /* DictionaryWordRule.swift */,
+				EC0089E81F4F09E500EECF36 /* LengthRule.swift */,
+				EC0089EE1F4F09E500EECF36 /* PredicateRule.swift */,
+				EC0089E91F4F09E500EECF36 /* RegularExpressionRule.swift */,
+				EC0089EA1F4F09E500EECF36 /* BlockRule.swift */,
 			);
-			name = Framework;
 			path = Navajo;
 			sourceTree = "<group>";
 		};
@@ -156,6 +156,7 @@
 					EC8056C21B91E13D00AA1CD1 = {
 						CreatedOnToolsVersion = 6.4;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -197,11 +198,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC0089F21F4F09E600EECF36 /* RegularExpressionRule.swift in Sources */,
+				EC0089F81F4F09E600EECF36 /* DictionaryWordRule.swift in Sources */,
+				EC0089F31F4F09E600EECF36 /* BlockRule.swift in Sources */,
+				EC0089F51F4F09E600EECF36 /* AllowedCharacterRule.swift in Sources */,
+				EC0089F71F4F09E600EECF36 /* PredicateRule.swift in Sources */,
+				EC0089F41F4F09E600EECF36 /* PasswordRule.swift in Sources */,
 				EC8056CB1B91E13D00AA1CD1 /* ViewController.swift in Sources */,
-				EC8645F31BC747EB00332F2E /* NJOPasswordValidator.swift in Sources */,
+				EC0089F91F4F09E600EECF36 /* PasswordValidator.swift in Sources */,
+				EC0089F11F4F09E600EECF36 /* LengthRule.swift in Sources */,
 				EC8056EB1B91E1E000AA1CD1 /* Navajo.swift in Sources */,
 				EC8056C91B91E13D00AA1CD1 /* AppDelegate.swift in Sources */,
-				EC8645F51BC7484F00332F2E /* NJOPasswordRule.swift in Sources */,
+				EC0089F61F4F09E600EECF36 /* RequiredCharacterRule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,10 +338,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Navajo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -342,10 +353,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Navajo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
