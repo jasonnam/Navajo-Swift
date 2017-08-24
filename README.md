@@ -86,7 +86,7 @@ if let failingRules = validator.validate(password) {
 If you are using the Predicate and Regex rules, remember that when password is matching to them it is considered to be invalid. For example, we can check if users are using for example "password123" as their password by following rule object.
 
 ```swift
-var rule = PredicateRule(predicate: NSPredicate(format: "SELF BEGINSWITH %@", "PASSWORD"))
+let rule = PredicateRule(predicate: NSPredicate(format: "SELF BEGINSWITH %@", "PASSWORD"))
 ```
 
 For the block rule, it is considered to be invalid when the block returns true.
