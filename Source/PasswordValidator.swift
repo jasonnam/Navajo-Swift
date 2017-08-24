@@ -31,7 +31,7 @@ open class PasswordValidator {
     open var rules: [PasswordRule] = []
 
     /// PasswordValidator object which checks if the length of password is between 6 and 24.
-    open static var standardValidator: PasswordValidator {
+    open static var standard: PasswordValidator {
         return PasswordValidator(rules: [standardLengthRule])
     }
 
