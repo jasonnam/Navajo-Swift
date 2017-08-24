@@ -27,7 +27,7 @@ import Foundation
 
 /// Strength of password. There are five levels divided by entropy value.
 /// The entropy value is evaluated by infromation entropy theory.
-public enum NJOPasswordStrength {
+public enum PasswordStrength {
     /// Entropy value is smaller than 28
     case veryWeak
     /// Entropy value is between 28 and 35
@@ -47,8 +47,8 @@ open class Navajo {
     /// - parameter password: Password string to be calculated
     ///
     /// - returns: Level of strength in NJOPasswordStrength
-    open class func strength(of password: String) -> NJOPasswordStrength {
-        return NJOPasswordStrength(for: NJOEntropy(for: password))
+    open static func strength(ofPassword password: String) -> PasswordStrength {
+        return passwordStrength(forEntropy: entropy(of: password))
     }
 
     /// Converts NJOPasswordStrength to localized string.
@@ -56,7 +56,7 @@ open class Navajo {
     /// - parameter strength: NJOPasswordStrength to be converted
     ///
     /// - returns: Localized string
-    open class func localizedString(for strength: NJOPasswordStrength) -> String {
+    open static func localizedString(forStrength strength: PasswordStrength) -> String {
         switch strength {
         case .veryWeak:
             return NSLocalizedString("NAVAJO_VERY_WEAK", tableName: nil, bundle: Bundle.main, value: "Very Weak", comment: "Navajo - Very weak")
@@ -71,7 +71,7 @@ open class Navajo {
         }
     }
 
-    private class func NJOEntropy(for string: String) -> Float {
+    private static func entropy(of string: String) -> Float {
         guard string.characters.count > 0 else {
             return 0.0
         }
@@ -130,7 +130,7 @@ open class Navajo {
         return log2f(sizeOfCharacterSet) * Float(string.characters.count)
     }
 
-    private class func NJOPasswordStrength(for entropy: Float) -> NJOPasswordStrength {
+    private static func passwordStrength(forEntropy entropy: Float) -> PasswordStrength {
         if entropy < 28 {
             return .veryWeak
         } else if entropy < 36 {
