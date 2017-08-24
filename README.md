@@ -50,34 +50,25 @@ Just copy the files in Source folder into your project.
 > Password strength is evaluated in terms of [information entropy](http://en.wikipedia.org/wiki/Entropy_%28information_theory%29).
 
 ```swift
-@IBOutlet private weak var passwordField: UITextField! = nil
-@IBOutlet private weak var strengthLabel: UILabel! = nil
-
 let password = passwordField.text ?? ""
-let strength = Navajo.strength(of: password)
+let strength = Navajo.strength(ofPassword: password)
 
-strengthLabel.text = Navajo.localizedString(for: strength)
+strengthLabel.text = Navajo.localizedString(forStrength: strength)
 ```
 
 ### Validating Password
 
 ```swift
-var lengthRule = NJOLengthRule(min: 6, max: 24)
-var uppercaseRule = NJORequiredCharacterRule(preset: .LowercaseCharacter)
+var lengthRule = LengthRule(min: 6, max: 24)
+var uppercaseRule = RequiredCharacterRule(preset: .LowercaseCharacter)
 
-validator = NJOPasswordValidator(rules: [lengthRule, uppercaseRule])
+validator = PasswordValidator(rules: [lengthRule, uppercaseRule])
 
 if let failingRules = validator.validate(password) {
-    var errorMessages: [String] = []
-
-    failingRules.forEach { rule in
-        errorMessages.append(rule.localizedErrorDescription)
-    }
-
-    validationLabel.textColor = UIColor.red
-    validationLabel.text = errorMessages.joined(separator: "\n")
+    validationLabel.textColor = .red
+    validationLabel.text = failingRules.map({ return $0.localizedErrorDescription }).joined(separator: "\n")
 } else {
-    validationLabel.textColor = UIColor.green
+    validationLabel.textColor = .green
     validationLabel.text = "Valid"
 }
 ```
@@ -95,7 +86,7 @@ if let failingRules = validator.validate(password) {
 If you are using the Predicate and Regex rules, remember that when password is matching to them it is considered to be invalid. For example, we can check if users are using for example "password123" as their password by following rule object.
 
 ```swift
-var rule = NJOPredicateRule(predicate: NSPredicate(format: "SELF BEGINSWITH %@", "PASSWORD"))
+var rule = PredicateRule(predicate: NSPredicate(format: "SELF BEGINSWITH %@", "PASSWORD"))
 ```
 
 For the block rule, it is considered to be invalid when the block returns true.
@@ -128,12 +119,6 @@ Keys for the localizable strings
 - NAVAJO_PREDICATE_ERROR
 - NAVAJO_REGEX_ERROR
 - NAVAJO_BLOCK_ERROR
-
-## TODO
-
-- Improved documentation
-- Swift Package Manager Support
-- Considering support for Swift throws - catch
 
 ## Contact
 
