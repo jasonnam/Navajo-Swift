@@ -42,6 +42,7 @@ public enum PasswordStrength {
 
 /// Navajo validates strength of passwords.
 open class Navajo {
+
     /// Gets strength of a password.
     ///
     /// - parameter password: Password string to be calculated
@@ -73,7 +74,7 @@ open class Navajo {
 
     private static func entropy(of string: String) -> Float {
         guard string.characters.count > 0 else {
-            return 0.0
+            return 0
         }
 
         var includesLowercaseCharacter = false,
@@ -86,42 +87,42 @@ open class Navajo {
 
         var sizeOfCharacterSet: Float = 0
 
-        string.enumerateSubstrings(in: string.startIndex ..< string.endIndex, options: String.EnumerationOptions.byComposedCharacterSequences) { subString, _, _, _ in
-            guard let subString = subString, let unicodeScalar = UnicodeScalar((subString as NSString).character(at: 0)) else {
+        string.enumerateSubstrings(in: string.startIndex ..< string.endIndex, options: .byComposedCharacterSequences) { subString, _, _, _ in
+            guard let unicodeScalars = subString?.characters.first?.unicodeScalars.first else {
                 return
             }
 
-            if !includesLowercaseCharacter && CharacterSet.lowercaseLetters.contains(unicodeScalar) {
+            if !includesLowercaseCharacter && CharacterSet.lowercaseLetters.contains(unicodeScalars) {
                 includesLowercaseCharacter = true
                 sizeOfCharacterSet += 26
             }
 
-            if !includesUppercaseCharacter && CharacterSet.uppercaseLetters.contains(unicodeScalar) {
+            if !includesUppercaseCharacter && CharacterSet.uppercaseLetters.contains(unicodeScalars) {
                 includesUppercaseCharacter = true
                 sizeOfCharacterSet += 26
             }
 
-            if !includesDecimalDigitCharacter && CharacterSet.decimalDigits.contains(unicodeScalar) {
+            if !includesDecimalDigitCharacter && CharacterSet.decimalDigits.contains(unicodeScalars) {
                 includesDecimalDigitCharacter = true
                 sizeOfCharacterSet += 10
             }
 
-            if !includesSymbolCharacter && CharacterSet.symbols.contains(unicodeScalar) {
+            if !includesSymbolCharacter && CharacterSet.symbols.contains(unicodeScalars) {
                 includesSymbolCharacter = true
                 sizeOfCharacterSet += 10
             }
 
-            if !includesPunctuationCharacter && CharacterSet.punctuationCharacters.contains(unicodeScalar) {
+            if !includesPunctuationCharacter && CharacterSet.punctuationCharacters.contains(unicodeScalars) {
                 includesPunctuationCharacter = true
                 sizeOfCharacterSet += 20
             }
 
-            if !includesWhitespaceCharacter && CharacterSet.whitespacesAndNewlines.contains(unicodeScalar) {
+            if !includesWhitespaceCharacter && CharacterSet.whitespacesAndNewlines.contains(unicodeScalars) {
                 includesWhitespaceCharacter = true
                 sizeOfCharacterSet += 1
             }
 
-            if !includesNonBaseCharacter && CharacterSet.nonBaseCharacters.contains(unicodeScalar) {
+            if !includesNonBaseCharacter && CharacterSet.nonBaseCharacters.contains(unicodeScalars) {
                 includesNonBaseCharacter = true
                 sizeOfCharacterSet += 32 + 128
             }
