@@ -47,7 +47,7 @@
 /* Begin PBXFileReference section */
 		EC86460D1BC74ED000332F2E /* Navajo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Navajo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC8646171BC74ED100332F2E /* Navajo iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Navajo iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC86461E1BC74ED100332F2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
+		EC86461E1BC74ED100332F2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
 		EC8646351BC7549300332F2E /* Navajo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navajo.swift; path = Source/Navajo.swift; sourceTree = SOURCE_ROOT; };
 		EC8646361BC7549300332F2E /* NJOPasswordRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NJOPasswordRule.swift; path = Source/NJOPasswordRule.swift; sourceTree = SOURCE_ROOT; };
 		EC8646371BC7549300332F2E /* NJOPasswordValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NJOPasswordValidator.swift; path = Source/NJOPasswordValidator.swift; sourceTree = SOURCE_ROOT; };
@@ -55,7 +55,7 @@
 		ECD5E0931CBB94A100D4A07A /* Navajo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Navajo.h; path = Source/Navajo.h; sourceTree = SOURCE_ROOT; };
 		ECE8E6771C28070800EC53BA /* Navajo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Navajo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE8E6881C28571000EC53BA /* Navajo OSX Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Navajo OSX Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECE8E6C61C28655200EC53BA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
+		ECE8E6C61C28655200EC53BA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +95,8 @@
 		EC8646031BC74ED000332F2E = {
 			isa = PBXGroup;
 			children = (
-				EC86460F1BC74ED000332F2E /* Navajo */,
-				EC86461B1BC74ED100332F2E /* NavajoTests */,
+				EC86460F1BC74ED000332F2E /* Source */,
+				EC86461B1BC74ED100332F2E /* Tests */,
 				EC86460E1BC74ED000332F2E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,7 +112,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EC86460F1BC74ED000332F2E /* Navajo */ = {
+		EC86460F1BC74ED000332F2E /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				ECD5E0931CBB94A100D4A07A /* Navajo.h */,
@@ -121,16 +121,16 @@
 				EC8646361BC7549300332F2E /* NJOPasswordRule.swift */,
 				ECE8E6C61C28655200EC53BA /* Info.plist */,
 			);
-			path = Navajo;
+			path = Source;
 			sourceTree = "<group>";
 		};
-		EC86461B1BC74ED100332F2E /* NavajoTests */ = {
+		EC86461B1BC74ED100332F2E /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				EC86463B1BC754A400332F2E /* NavajoTests.swift */,
 				EC86461E1BC74ED100332F2E /* Info.plist */,
 			);
-			path = NavajoTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
