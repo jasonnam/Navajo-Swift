@@ -59,8 +59,8 @@ strengthLabel.text = Navajo.localizedString(forStrength: strength)
 ### Validating Password
 
 ```swift
-var lengthRule = LengthRule(min: 6, max: 24)
-var uppercaseRule = RequiredCharacterRule(preset: .LowercaseCharacter)
+let lengthRule = LengthRule(min: 6, max: 24)
+let uppercaseRule = RequiredCharacterRule(preset: .LowercaseCharacter)
 
 validator = PasswordValidator(rules: [lengthRule, uppercaseRule])
 
