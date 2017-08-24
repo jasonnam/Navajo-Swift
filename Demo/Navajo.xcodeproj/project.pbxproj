@@ -12,25 +12,11 @@
 		EC8056CE1B91E13D00AA1CD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8056CC1B91E13D00AA1CD1 /* Main.storyboard */; };
 		EC8056D01B91E13D00AA1CD1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC8056CF1B91E13D00AA1CD1 /* Images.xcassets */; };
 		EC8056D31B91E13D00AA1CD1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC8056D11B91E13D00AA1CD1 /* LaunchScreen.xib */; };
-		EC8056DF1B91E13D00AA1CD1 /* NavajoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8056DE1B91E13D00AA1CD1 /* NavajoTests.swift */; };
 		EC8056EB1B91E1E000AA1CD1 /* Navajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8056EA1B91E1E000AA1CD1 /* Navajo.swift */; };
-		EC8056EC1B91E27700AA1CD1 /* Navajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8056EA1B91E1E000AA1CD1 /* Navajo.swift */; };
 		EC8056EF1B91E2C500AA1CD1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC8056ED1B91E2C500AA1CD1 /* Localizable.strings */; };
 		EC8645F31BC747EB00332F2E /* NJOPasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8645F21BC747EB00332F2E /* NJOPasswordValidator.swift */; };
 		EC8645F51BC7484F00332F2E /* NJOPasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8645F41BC7484F00332F2E /* NJOPasswordRule.swift */; };
-		EC8645F61BC748B400332F2E /* NJOPasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8645F41BC7484F00332F2E /* NJOPasswordRule.swift */; };
-		EC8645F71BC748B700332F2E /* NJOPasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8645F21BC747EB00332F2E /* NJOPasswordValidator.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		EC8056D91B91E13D00AA1CD1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC8056BB1B91E13D00AA1CD1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EC8056C21B91E13D00AA1CD1;
-			remoteInfo = Navajo;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		EC8056C31B91E13D00AA1CD1 /* Navajo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navajo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,7 +26,6 @@
 		EC8056CD1B91E13D00AA1CD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC8056CF1B91E13D00AA1CD1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EC8056D21B91E13D00AA1CD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		EC8056D81B91E13D00AA1CD1 /* NavajoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavajoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC8056DD1B91E13D00AA1CD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC8056DE1B91E13D00AA1CD1 /* NavajoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavajoTests.swift; path = ../../Tests/NavajoTests.swift; sourceTree = "<group>"; };
 		EC8056EA1B91E1E000AA1CD1 /* Navajo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navajo.swift; path = ../Source/Navajo.swift; sourceTree = SOURCE_ROOT; };
@@ -52,13 +37,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		EC8056C01B91E13D00AA1CD1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC8056D51B91E13D00AA1CD1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -82,7 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				EC8056C31B91E13D00AA1CD1 /* Navajo.app */,
-				EC8056D81B91E13D00AA1CD1 /* NavajoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,24 +142,6 @@
 			productReference = EC8056C31B91E13D00AA1CD1 /* Navajo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EC8056D71B91E13D00AA1CD1 /* NavajoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EC8056E51B91E13D00AA1CD1 /* Build configuration list for PBXNativeTarget "NavajoTests" */;
-			buildPhases = (
-				EC8056D41B91E13D00AA1CD1 /* Sources */,
-				EC8056D51B91E13D00AA1CD1 /* Frameworks */,
-				EC8056D61B91E13D00AA1CD1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EC8056DA1B91E13D00AA1CD1 /* PBXTargetDependency */,
-			);
-			name = NavajoTests;
-			productName = NavajoTests;
-			productReference = EC8056D81B91E13D00AA1CD1 /* NavajoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,11 +156,6 @@
 					EC8056C21B91E13D00AA1CD1 = {
 						CreatedOnToolsVersion = 6.4;
 						LastSwiftMigration = 0800;
-					};
-					EC8056D71B91E13D00AA1CD1 = {
-						CreatedOnToolsVersion = 6.4;
-						LastSwiftMigration = 0800;
-						TestTargetID = EC8056C21B91E13D00AA1CD1;
 					};
 				};
 			};
@@ -220,7 +174,6 @@
 			projectRoot = "";
 			targets = (
 				EC8056C21B91E13D00AA1CD1 /* Navajo */,
-				EC8056D71B91E13D00AA1CD1 /* NavajoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -234,13 +187,6 @@
 				EC8056EF1B91E2C500AA1CD1 /* Localizable.strings in Resources */,
 				EC8056D31B91E13D00AA1CD1 /* LaunchScreen.xib in Resources */,
 				EC8056D01B91E13D00AA1CD1 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC8056D61B91E13D00AA1CD1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,26 +205,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC8056D41B91E13D00AA1CD1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EC8056EC1B91E27700AA1CD1 /* Navajo.swift in Sources */,
-				EC8645F71BC748B700332F2E /* NJOPasswordValidator.swift in Sources */,
-				EC8645F61BC748B400332F2E /* NJOPasswordRule.swift in Sources */,
-				EC8056DF1B91E13D00AA1CD1 /* NavajoTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		EC8056DA1B91E13D00AA1CD1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EC8056C21B91E13D00AA1CD1 /* Navajo */;
-			targetProxy = EC8056D91B91E13D00AA1CD1 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EC8056CC1B91E13D00AA1CD1 /* Main.storyboard */ = {
@@ -423,38 +350,6 @@
 			};
 			name = Release;
 		};
-		EC8056E61B91E13D00AA1CD1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = NavajoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Navajo.app/Navajo";
-			};
-			name = Debug;
-		};
-		EC8056E71B91E13D00AA1CD1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = NavajoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Navajo.app/Navajo";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -472,15 +367,6 @@
 			buildConfigurations = (
 				EC8056E31B91E13D00AA1CD1 /* Debug */,
 				EC8056E41B91E13D00AA1CD1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EC8056E51B91E13D00AA1CD1 /* Build configuration list for PBXNativeTarget "NavajoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EC8056E61B91E13D00AA1CD1 /* Debug */,
-				EC8056E71B91E13D00AA1CD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
