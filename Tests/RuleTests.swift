@@ -128,7 +128,7 @@ class RuleTests: XCTestCase {
 
         let ruleWithInitialBlock = BlockRule() { (password: String) in
             let emailRegex = try! NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}", options: [])
-            return emailRegex.numberOfMatches(in: password, options: [], range: NSMakeRange(0, password.characters.count)) > 0
+            return emailRegex.numberOfMatches(in: password, options: [], range: NSMakeRange(0, password.count)) > 0
         }
 
         XCTAssert(ruleWithInitialBlock.evaluate("contact@jasonnam.com") == true, "Password is an email but passed")

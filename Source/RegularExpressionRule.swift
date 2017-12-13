@@ -42,7 +42,7 @@ open class RegularExpressionRule: PasswordRule {
             return false
         }
 
-        return regularExpression.numberOfMatches(in: password, options: [], range: NSMakeRange(0, password.characters.count)) > 0
+        return regularExpression.numberOfMatches(in: password, options: [], range: NSMakeRange(0, password.count)) > 0
     }
 
     /// Error description.

@@ -73,7 +73,7 @@ open class Navajo {
     }
 
     private static func entropy(of string: String) -> Float {
-        guard string.characters.count > 0 else {
+        guard string.count > 0 else {
             return 0
         }
 
@@ -88,7 +88,7 @@ open class Navajo {
         var sizeOfCharacterSet: Float = 0
 
         string.enumerateSubstrings(in: string.startIndex ..< string.endIndex, options: .byComposedCharacterSequences) { subString, _, _, _ in
-            guard let unicodeScalars = subString?.characters.first?.unicodeScalars.first else {
+            guard let unicodeScalars = subString?.first?.unicodeScalars.first else {
                 return
             }
 
@@ -128,7 +128,7 @@ open class Navajo {
             }
         }
 
-        return log2f(sizeOfCharacterSet) * Float(string.characters.count)
+        return log2f(sizeOfCharacterSet) * Float(string.count)
     }
 
     private static func passwordStrength(forEntropy entropy: Float) -> PasswordStrength {

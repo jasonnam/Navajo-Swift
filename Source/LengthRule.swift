@@ -42,7 +42,7 @@ open class LengthRule: PasswordRule {
             return false
         }
 
-        return !NSLocationInRange(password.characters.count, range)
+        return !NSLocationInRange(password.count, range)
     }
 
     /// Error description.
