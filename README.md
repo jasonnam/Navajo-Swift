@@ -10,12 +10,12 @@
 
 [Navajo](https://github.com/mattt/Navajo) by Mattt Thompson
 
-> This project is not 100% compatible with the original project.
+> This project is not compatible with the original project.
 
 ## Installation
 
 [![Platform](https://img.shields.io/cocoapods/p/Navajo-Swift.svg?style=flat)](https://apple.com)
-[![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)](https://developer.apple.com/swift)
+[![Swift 4.0](https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat)](https://developer.apple.com/swift)
 [![Travis-CI](https://travis-ci.org/jasonnam/Navajo-Swift.svg?branch=master)](https://travis-ci.org/jasonnam/Navajo-Swift)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/Navajo-Swift.svg?style=flat)](https://cocoapods.org/pods/Navajo-Swift)
@@ -122,7 +122,7 @@ Keys for the localizable strings
 
 Any feedback and pull requests are welcome :)
 
-Jason Nam<br>[Website](http://www.jasonnam.com)<br>[Email](mailto:contact@jasonnam.com)
+Jason Nam<br>[Website](http://jasonnam.com)<br>[Email](mailto:contact@jasonnam.com)
 
 ## License
 
