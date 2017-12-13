@@ -1,8 +1,8 @@
 //
-// Navajo.h
+// PasswordRule.swift
 // Navajo
 //
-// Copyright (c) 2015-2017 Jason Nam (http://www.jasonnam.com)
+// Copyright (c) 2015-2017 Jason Nam (http://jasonnam.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +23,18 @@
 // THE SOFTWARE.
 //
 
-@import Foundation;
+import Foundation
 
-FOUNDATION_EXPORT double NavajoVersionNumber;
-FOUNDATION_EXPORT const unsigned char NavajoVersionString[];
+/// By adopting PasswordRule protocol you can build your own rules.
+public protocol PasswordRule {
+
+    /// Evaluating the password
+    ///
+    /// - parameter password: Password string to be evaluated
+    ///
+    /// - returns: true is considered to be failed and false is passed.
+    func evaluate(_ password: String) -> Bool
+
+    /// Error description
+    var localizedErrorDescription: String { get }
+}
