@@ -1,6 +1,4 @@
-<p align="center" >
-  <img src="LOGO.png" title="Navajo logo" float=left height="120px" width="120px">
-</p>
+<img src="wallpaper.png" title="Navajo Nation" float=left width="100%">
 
 # Navajo-Swift
 
