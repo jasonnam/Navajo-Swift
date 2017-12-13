@@ -34,96 +34,95 @@ class RuleTests: XCTestCase {
     func testAllowedCharacterRule() {
         let ruleWithoutInitialCharacterSet = AllowedCharacterRule()
 
-        XCTAssert(ruleWithoutInitialCharacterSet.evaluate("PASSWORD") == false, "Allowed character rule not ignored")
-
+        XCTAssertFalse(ruleWithoutInitialCharacterSet.evaluate("PASSWORD"), "Allowed character rule not ignored")
 
         let ruleWithInitialCharacterSet = AllowedCharacterRule(allowedCharacters: CharacterSet(charactersIn: "abc"))
 
-        XCTAssert(ruleWithInitialCharacterSet.evaluate("abcd") == true, "Disallowed characters are not filtered out")
-        XCTAssert(ruleWithInitialCharacterSet.evaluate("aaa") == false, "Allowed characters are used but failed to pass")
-        XCTAssert(ruleWithInitialCharacterSet.evaluate("aabbccaaabbbcccaaaabbbbcccc") == false, "Allowed characters are used but failed to pass")
+        XCTAssertTrue(ruleWithInitialCharacterSet.evaluate("abcd"), "Disallowed characters are not filtered out")
+        XCTAssertFalse(ruleWithInitialCharacterSet.evaluate("aaa"), "Allowed characters are used but failed to pass")
+        XCTAssertFalse(ruleWithInitialCharacterSet.evaluate("aabbccaaabbbcccaaaabbbbcccc"), "Allowed characters are used but failed to pass")
     }
 
     func testRequiredCharacterRule() {
         let ruleWithoutInitialOption = RequiredCharacterRule()
 
-        XCTAssert(ruleWithoutInitialOption.evaluate("PASSWORD") == false, "Required character rule without initial option not ignored")
+        XCTAssertFalse(ruleWithoutInitialOption.evaluate("PASSWORD"), "Required character rule without initial option not ignored")
 
 
         let ruleWithRequiredCharacters = RequiredCharacterRule(requiredCharacterSet: CharacterSet(charactersIn: "!@#ABCabc"))
 
-        XCTAssert(ruleWithRequiredCharacters.evaluate("!d@e#fAgBhCabc") == false, "All of the required characters are used but not passed")
-        XCTAssert(ruleWithRequiredCharacters.evaluate("!d@e#fAg") == false, "Some of the required characters are used but not passed")
-        XCTAssert(ruleWithRequiredCharacters.evaluate("deg$%^") == true, "Required characters are not used but passed")
+        XCTAssertFalse(ruleWithRequiredCharacters.evaluate("!d@e#fAgBhCabc"), "All of the required characters are used but not passed")
+        XCTAssertFalse(ruleWithRequiredCharacters.evaluate("!d@e#fAg"), "Some of the required characters are used but not passed")
+        XCTAssertTrue(ruleWithRequiredCharacters.evaluate("deg$%^"), "Required characters are not used but passed")
 
 
         let ruleWithInitialLowercasePreset = RequiredCharacterRule(preset: .lowercaseCharacter)
 
-        XCTAssert(ruleWithInitialLowercasePreset.evaluate("Abcdef12345!@#") == false, "Some of the characters are lowercase but not passed")
-        XCTAssert(ruleWithInitialLowercasePreset.evaluate("ABCDEF12345!@#") == true, "All of them are uppercase but passed")
+        XCTAssertFalse(ruleWithInitialLowercasePreset.evaluate("Abcdef12345!@#"), "Some of the characters are lowercase but not passed")
+        XCTAssertTrue(ruleWithInitialLowercasePreset.evaluate("ABCDEF12345!@#"), "All of them are uppercase but passed")
 
 
         let ruleWithInitialUppercasePreset = RequiredCharacterRule(preset: .uppercaseCharacter)
 
-        XCTAssert(ruleWithInitialUppercasePreset.evaluate("AbcDef12345!@#") == false, "Some of the characters are uppercase but not passed")
-        XCTAssert(ruleWithInitialUppercasePreset.evaluate("abcdef12345!@#") == true, "All of them are lowercase but passed")
+        XCTAssertFalse(ruleWithInitialUppercasePreset.evaluate("AbcDef12345!@#"), "Some of the characters are uppercase but not passed")
+        XCTAssertTrue(ruleWithInitialUppercasePreset.evaluate("abcdef12345!@#"), "All of them are lowercase but passed")
 
 
         let ruleWithInitialDecimalDigitPreset = RequiredCharacterRule(preset: .decimalDigitCharacter)
 
-        XCTAssert(ruleWithInitialDecimalDigitPreset.evaluate("Abcdef12345!@#") == false, "Some of the characters are decimal digits but not passed")
-        XCTAssert(ruleWithInitialDecimalDigitPreset.evaluate("abcdef!@#") == true, "No decimal digits but passed")
+        XCTAssertFalse(ruleWithInitialDecimalDigitPreset.evaluate("Abcdef12345!@#"), "Some of the characters are decimal digits but not passed")
+        XCTAssertTrue(ruleWithInitialDecimalDigitPreset.evaluate("abcdef!@#"), "No decimal digits but passed")
 
 
         let ruleWithInitialSymbolPreset = RequiredCharacterRule(preset: .symbolCharacter)
 
-        XCTAssert(ruleWithInitialSymbolPreset.evaluate("Abcdef12345!") == false, "Some of the characters are symbols but not passed")
-        XCTAssert(ruleWithInitialSymbolPreset.evaluate("abcdef") == true, "No symbols but passed")
+        XCTAssertFalse(ruleWithInitialSymbolPreset.evaluate("Abcdef12345!"), "Some of the characters are symbols but not passed")
+        XCTAssertTrue(ruleWithInitialSymbolPreset.evaluate("abcdef"), "No symbols but passed")
     }
 
     func testLengthRule() {
         let ruleWithoutInitialRange = LengthRule()
 
-        XCTAssert(ruleWithoutInitialRange.evaluate("PASSWORD") == false, "Length rule without initial range but not ignored")
+        XCTAssertFalse(ruleWithoutInitialRange.evaluate("PASSWORD"), "Length rule without initial range but not ignored")
 
 
         let ruleWithInitialRange = LengthRule(min: 6, max: 9)
 
-        XCTAssert(ruleWithInitialRange.evaluate("12345") == true, "Password is too short but passed")
-        XCTAssert(ruleWithInitialRange.evaluate("123456") == false, "Password is in range but not passed")
-        XCTAssert(ruleWithInitialRange.evaluate("123456789") == false, "Password is in range but not passed")
-        XCTAssert(ruleWithInitialRange.evaluate("1234567890") == true, "Password is too long but passed")
+        XCTAssertTrue(ruleWithInitialRange.evaluate("12345"), "Password is too short but passed")
+        XCTAssertFalse(ruleWithInitialRange.evaluate("123456"), "Password is in range but not passed")
+        XCTAssertFalse(ruleWithInitialRange.evaluate("123456789"), "Password is in range but not passed")
+        XCTAssertTrue(ruleWithInitialRange.evaluate("1234567890"), "Password is too long but passed")
     }
 
     func testPredicateRule() {
         let ruleWithoutInitialPredicate = PredicateRule()
 
-        XCTAssert(ruleWithoutInitialPredicate.evaluate("PASSWORD") == false, "Length rule without initial predicate but not ignored")
+        XCTAssertFalse(ruleWithoutInitialPredicate.evaluate("PASSWORD"), "Length rule without initial predicate but not ignored")
 
 
         let ruleWithInitialPredicate = PredicateRule(predicate: NSPredicate(format: "SELF BEGINSWITH %@", "PASSWORD"))
 
-        XCTAssert(ruleWithInitialPredicate.evaluate("PASSWORDINPUT!") == true, "Password begins with PASSWORD but passed")
-        XCTAssert(ruleWithInitialPredicate.evaluate("PASS") == false, "Password doesn't begin with PASSWORD but not passed")
+        XCTAssertTrue(ruleWithInitialPredicate.evaluate("PASSWORDINPUT!"), "Password begins with PASSWORD but passed")
+        XCTAssertFalse(ruleWithInitialPredicate.evaluate("PASS"), "Password doesn't begin with PASSWORD but not passed")
     }
 
     func testRegexRule() {
         let ruleWithoutInitialRegex = RegularExpressionRule()
 
-        XCTAssert(ruleWithoutInitialRegex.evaluate("PASSWORD") == false, "Length rule without initial regex but not ignored")
+        XCTAssertFalse(ruleWithoutInitialRegex.evaluate("PASSWORD"), "Length rule without initial regex but not ignored")
 
 
         // Email Regex
         let ruleWithInitialRegex = RegularExpressionRule(regularExpression: try! NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}", options: []))
 
-        XCTAssert(ruleWithInitialRegex.evaluate("contact@jasonnam.com") == true, "Password is an email but passed")
-        XCTAssert(ruleWithInitialRegex.evaluate("PASSWORD") == false, "Password is not an email but not passed")
+        XCTAssertTrue(ruleWithInitialRegex.evaluate("contact@jasonnam.com"), "Password is an email but passed")
+        XCTAssertFalse(ruleWithInitialRegex.evaluate("PASSWORD"), "Password is not an email but not passed")
     }
 
     func testBlockRule() {
         let ruleWithoutInitialBlock = BlockRule()
 
-        XCTAssert(ruleWithoutInitialBlock.evaluate("PASSWORD") == false, "Length rule without initial block but not ignored")
+        XCTAssertFalse(ruleWithoutInitialBlock.evaluate("PASSWORD"), "Length rule without initial block but not ignored")
 
 
         let ruleWithInitialBlock = BlockRule() { (password: String) in
@@ -131,7 +130,7 @@ class RuleTests: XCTestCase {
             return emailRegex.numberOfMatches(in: password, options: [], range: NSMakeRange(0, password.count)) > 0
         }
 
-        XCTAssert(ruleWithInitialBlock.evaluate("contact@jasonnam.com") == true, "Password is an email but passed")
-        XCTAssert(ruleWithInitialBlock.evaluate("PASSWORD") == false, "Password is not an email but not passed")
+        XCTAssertTrue(ruleWithInitialBlock.evaluate("contact@jasonnam.com"), "Password is an email but passed")
+        XCTAssertFalse(ruleWithInitialBlock.evaluate("PASSWORD"), "Password is not an email but not passed")
     }
 }
