@@ -1,7 +1,7 @@
 //
 // RuleTests.swift
 //
-// Copyright (c) 2015-2017 Jason Nam (http://www.jasonnam.com)
+// Copyright (c) 2015-2017 Jason Nam (http://jasonnam.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
