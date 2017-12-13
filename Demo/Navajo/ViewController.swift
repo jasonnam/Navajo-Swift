@@ -44,7 +44,8 @@ final class ViewController: UIViewController {
     @IBAction func changeValidator(_ sender: UISwitch) {
         if sender.isOn {
             let lengthRule = LengthRule(min: 2, max: 4)
-            let emailFilteringRule = RegularExpressionRule(regularExpression: try! NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}", options: []))
+            let emailRegularExpression = try! NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}", options: [])
+            let emailFilteringRule = RegularExpressionRule(regularExpression: emailRegularExpression)
             validator = PasswordValidator(rules: [lengthRule, emailFilteringRule])
         } else {
             validator = PasswordValidator.standard
