@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,6 +23,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QTL-Lk-wTV">
+                                <rect key="frame" x="87.5" y="40" width="200" height="30"/>
                                 <color key="tintColor" red="0.1176470588" green="0.1960784314" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Ggq-FW-Dgd"/>
@@ -27,10 +31,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
-                                    <action selector="passwordChangedWithSender:" destination="vXZ-lx-hvc" eventType="editingChanged" id="BG2-Pb-0Zt"/>
+                                    <action selector="passwordUpdated:" destination="vXZ-lx-hvc" eventType="editingChanged" id="cW7-c1-v0H"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strength" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPL-Qy-Bcj">
+                                <rect key="frame" x="87.5" y="78" width="200" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="LCH-nZ-ZIf"/>
                                     <constraint firstAttribute="width" constant="200" id="qlw-GU-VdS"/>
@@ -39,8 +44,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqN-dr-XwN">
+                                <rect key="frame" x="87.5" y="104" width="200" height="78"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter Out Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4l4-tS-hGF">
+                                        <rect key="frame" x="40" y="49" width="120" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="bb1-av-PPT"/>
                                             <constraint firstAttribute="height" constant="21" id="mXh-B7-QWE"/>
@@ -49,8 +56,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ahI-jf-4cB">
+                                        <rect key="frame" x="75.5" y="10" width="51" height="31"/>
                                         <connections>
-                                            <action selector="optionChangedWithSender:" destination="vXZ-lx-hvc" eventType="primaryActionTriggered" id="BH8-94-niB"/>
+                                            <action selector="changeValidator:" destination="vXZ-lx-hvc" eventType="valueChanged" id="N47-2z-151"/>
                                         </connections>
                                     </switch>
                                 </subviews>
@@ -65,6 +73,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validation" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yh4-OJ-FZg">
+                                <rect key="frame" x="16" y="190" width="343" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="7dj-2r-1zK"/>
                                     <constraint firstAttribute="height" constant="42" id="lQ7-zs-OnY"/>

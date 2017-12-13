@@ -2,7 +2,7 @@
 // Navajo.swift
 // Navajo
 //
-// Copyright (c) 2015-2016 Jason Nam (http://www.jasonnam.com)
+// Copyright (c) 2015-2017 Jason Nam (http://jasonnam.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@ import Foundation
 
 /// Strength of password. There are five levels divided by entropy value.
 /// The entropy value is evaluated by infromation entropy theory.
-public enum NJOPasswordStrength {
+public enum PasswordStrength {
     /// Entropy value is smaller than 28
     case veryWeak
     /// Entropy value is between 28 and 35
@@ -41,14 +41,15 @@ public enum NJOPasswordStrength {
 }
 
 /// Navajo validates strength of passwords.
-open class Navajo: NSObject {
+open class Navajo {
+
     /// Gets strength of a password.
     ///
     /// - parameter password: Password string to be calculated
     ///
     /// - returns: Level of strength in NJOPasswordStrength
-    open class func strength(of password: String) -> NJOPasswordStrength {
-        return NJOPasswordStrength(for: NJOEntropy(for: password))
+    open static func strength(ofPassword password: String) -> PasswordStrength {
+        return passwordStrength(forEntropy: entropy(of: password))
     }
 
     /// Converts NJOPasswordStrength to localized string.
@@ -56,7 +57,7 @@ open class Navajo: NSObject {
     /// - parameter strength: NJOPasswordStrength to be converted
     ///
     /// - returns: Localized string
-    open class func localizedString(for strength: NJOPasswordStrength) -> String {
+    open static func localizedString(forStrength strength: PasswordStrength) -> String {
         switch strength {
         case .veryWeak:
             return NSLocalizedString("NAVAJO_VERY_WEAK", tableName: nil, bundle: Bundle.main, value: "Very Weak", comment: "Navajo - Very weak")
@@ -71,9 +72,9 @@ open class Navajo: NSObject {
         }
     }
 
-    private class func NJOEntropy(for string: String) -> Float {
-        guard string.characters.count > 0 else {
-            return 0.0
+    private static func entropy(of string: String) -> Float {
+        guard string.count > 0 else {
+            return 0
         }
 
         var includesLowercaseCharacter = false,
@@ -86,51 +87,51 @@ open class Navajo: NSObject {
 
         var sizeOfCharacterSet: Float = 0
 
-        string.enumerateSubstrings(in: string.startIndex ..< string.endIndex, options: String.EnumerationOptions.byComposedCharacterSequences) { subString, _, _, _ in
-            guard let subString = subString, let unicodeScalar = UnicodeScalar((subString as NSString).character(at: 0)) else {
+        string.enumerateSubstrings(in: string.startIndex ..< string.endIndex, options: .byComposedCharacterSequences) { subString, _, _, _ in
+            guard let unicodeScalars = subString?.first?.unicodeScalars.first else {
                 return
             }
 
-            if !includesLowercaseCharacter && CharacterSet.lowercaseLetters.contains(unicodeScalar) {
+            if !includesLowercaseCharacter && CharacterSet.lowercaseLetters.contains(unicodeScalars) {
                 includesLowercaseCharacter = true
                 sizeOfCharacterSet += 26
             }
 
-            if !includesUppercaseCharacter && CharacterSet.uppercaseLetters.contains(unicodeScalar) {
+            if !includesUppercaseCharacter && CharacterSet.uppercaseLetters.contains(unicodeScalars) {
                 includesUppercaseCharacter = true
                 sizeOfCharacterSet += 26
             }
 
-            if !includesDecimalDigitCharacter && CharacterSet.decimalDigits.contains(unicodeScalar) {
+            if !includesDecimalDigitCharacter && CharacterSet.decimalDigits.contains(unicodeScalars) {
                 includesDecimalDigitCharacter = true
                 sizeOfCharacterSet += 10
             }
 
-            if !includesSymbolCharacter && CharacterSet.symbols.contains(unicodeScalar) {
+            if !includesSymbolCharacter && CharacterSet.symbols.contains(unicodeScalars) {
                 includesSymbolCharacter = true
                 sizeOfCharacterSet += 10
             }
 
-            if !includesPunctuationCharacter && CharacterSet.punctuationCharacters.contains(unicodeScalar) {
+            if !includesPunctuationCharacter && CharacterSet.punctuationCharacters.contains(unicodeScalars) {
                 includesPunctuationCharacter = true
                 sizeOfCharacterSet += 20
             }
 
-            if !includesWhitespaceCharacter && CharacterSet.whitespacesAndNewlines.contains(unicodeScalar) {
+            if !includesWhitespaceCharacter && CharacterSet.whitespacesAndNewlines.contains(unicodeScalars) {
                 includesWhitespaceCharacter = true
                 sizeOfCharacterSet += 1
             }
 
-            if !includesNonBaseCharacter && CharacterSet.nonBaseCharacters.contains(unicodeScalar) {
+            if !includesNonBaseCharacter && CharacterSet.nonBaseCharacters.contains(unicodeScalars) {
                 includesNonBaseCharacter = true
                 sizeOfCharacterSet += 32 + 128
             }
         }
 
-        return log2f(sizeOfCharacterSet) * Float(string.characters.count)
+        return log2f(sizeOfCharacterSet) * Float(string.count)
     }
 
-    private class func NJOPasswordStrength(for entropy: Float) -> NJOPasswordStrength {
+    private static func passwordStrength(forEntropy entropy: Float) -> PasswordStrength {
         if entropy < 28 {
             return .veryWeak
         } else if entropy < 36 {

@@ -1,7 +1,7 @@
 //
 // AppDelegate.swift
 //
-// Copyright (c) 2015 Jason Nam (http://www.jasonnam.com)
+// Copyright (c) 2015-2017 Jason Nam (http://www.jasonnam.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,6 +26,7 @@ import UIKit
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
+
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {

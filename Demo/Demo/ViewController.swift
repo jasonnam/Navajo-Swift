@@ -1,7 +1,7 @@
 //
 // ViewController.swift
 //
-// Copyright (c) 2015 Jason Nam (http://www.jasonnam.com)
+// Copyright (c) 2015-2017 Jason Nam (http://www.jasonnam.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,51 +25,45 @@
 import UIKit
 
 final class ViewController: UIViewController {
-    @IBOutlet private weak var passwordField: UITextField! = nil
-    @IBOutlet private weak var strengthLabel: UILabel! = nil
-    @IBOutlet private weak var validationLabel: UILabel! = nil
 
-    private var validator = NJOPasswordValidator.standardValidator
+    @IBOutlet private weak var passwordField: UITextField!
+    @IBOutlet private weak var strengthLabel: UILabel!
+    @IBOutlet private weak var validationLabel: UILabel!
+
+    private var validator = PasswordValidator.standard
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         passwordField.becomeFirstResponder()
     }
 
-    @IBAction func passwordChanged(sender: UITextField) {
-        checkPassword()
+    @IBAction func passwordUpdated(_ sender: UITextField) {
+        validatePassword()
     }
 
-    @IBAction func optionChanged(sender: UISwitch) {
+    @IBAction func changeValidator(_ sender: UISwitch) {
         if sender.isOn {
-            let lengthRule = NJOLengthRule(min: 2, max: 4)
-            let emailFilteringRule = NJORegularExpressionRule(regularExpression: try! NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}", options: []))
-
-            validator = NJOPasswordValidator(rules: [lengthRule, emailFilteringRule])
+            let lengthRule = LengthRule(min: 2, max: 4)
+            let emailRegularExpression = try! NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}", options: [])
+            let emailFilteringRule = RegularExpressionRule(regularExpression: emailRegularExpression)
+            validator = PasswordValidator(rules: [lengthRule, emailFilteringRule])
         } else {
-            validator = NJOPasswordValidator.standardValidator
+            validator = PasswordValidator.standard
         }
-
-        checkPassword()
+        validatePassword()
     }
 
-    private func checkPassword() {
+    private func validatePassword() {
         let password = passwordField.text ?? ""
-        let strength = Navajo.strength(of: password)
+        let strength = Navajo.strength(ofPassword: password)
 
-        strengthLabel.text = Navajo.localizedString(for: strength)
+        strengthLabel.text = Navajo.localizedString(forStrength: strength)
 
         if let failingRules = validator.validate(password) {
-            var errorMessages: [String] = []
-
-            failingRules.forEach { rule in
-                errorMessages.append(rule.localizedErrorDescription)
-            }
-
-            validationLabel.textColor = UIColor.red
-            validationLabel.text = errorMessages.joined(separator: "\n")
+            validationLabel.textColor = .red
+            validationLabel.text = failingRules.map { return $0.localizedErrorDescription }.joined(separator: "\n")
         } else {
-            validationLabel.textColor = UIColor.green
+            validationLabel.textColor = .green
             validationLabel.text = "Valid"
         }
     }

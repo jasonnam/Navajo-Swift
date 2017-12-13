@@ -1,8 +1,8 @@
 //
-// Navajo.h
+// PredicateRule.swift
 // Navajo
 //
-// Copyright (c) 2015-2017 Jason Nam (http://www.jasonnam.com)
+// Copyright (c) 2015-2017 Jason Nam (http://jasonnam.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +23,31 @@
 // THE SOFTWARE.
 //
 
-@import Foundation;
+import Foundation
 
-FOUNDATION_EXPORT double NavajoVersionNumber;
-FOUNDATION_EXPORT const unsigned char NavajoVersionString[];
+/// PredicateRule checks password with a NSPredicate object.
+open class PredicateRule: PasswordRule {
+
+    open var predicate: NSPredicate? = nil
+
+    /// Initialize with an NSPredicate object.
+    public convenience init(predicate: NSPredicate) {
+        self.init()
+        self.predicate = predicate
+    }
+
+    /// Evaluate password. Return false if it is passed and true if failed.
+    open func evaluate(_ password: String) -> Bool {
+        guard let predicate = predicate else {
+            return false
+        }
+
+        return predicate.evaluate(with: password)
+    }
+
+    /// Error description.
+    /// Localization Key - "NAVAJO_PREDICATE_ERROR"
+    open var localizedErrorDescription: String {
+        return NSLocalizedString("NAVAJO_PREDICATE_ERROR", tableName: nil, bundle: Bundle.main, value: "Must not match predicate", comment: "Navajo - Predicate rule")
+    }
+}

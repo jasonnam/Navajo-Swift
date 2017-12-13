@@ -1,8 +1,8 @@
 //
-// Navajo.h
+// BlockRule.swift
 // Navajo
 //
-// Copyright (c) 2015-2017 Jason Nam (http://www.jasonnam.com)
+// Copyright (c) 2015-2017 Jason Nam (http://jasonnam.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +23,31 @@
 // THE SOFTWARE.
 //
 
-@import Foundation;
+import Foundation
 
-FOUNDATION_EXPORT double NavajoVersionNumber;
-FOUNDATION_EXPORT const unsigned char NavajoVersionString[];
+/// BlockRule checks password with a block which gets a string and returns a bool value.
+open class BlockRule: PasswordRule {
+
+    open var evaluation: ((String) -> Bool)?
+
+    /// Initialize with a Block.
+    public convenience init(evaluation: @escaping (String) -> Bool) {
+        self.init()
+        self.evaluation = evaluation
+    }
+
+    /// Evaluate password. Return false if it is passed and true if failed.
+    open func evaluate(_ password: String) -> Bool {
+        guard let evaluation = evaluation else {
+            return false
+        }
+
+        return evaluation(password)
+    }
+
+    /// Error description.
+    /// Localization Key - "NAVAJO_BLOCK_ERROR"
+    open var localizedErrorDescription: String {
+        return NSLocalizedString("NAVAJO_BLOCK_ERROR", tableName: nil, bundle: Bundle.main, value: "Must not satisfy precondition", comment: "Navajo - Block rule")
+    }
+}

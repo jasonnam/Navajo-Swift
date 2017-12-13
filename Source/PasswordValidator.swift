@@ -2,7 +2,7 @@
 // NJOPasswordValidator.swift
 // Navajo
 //
-// Copyright (c) 2015-2016 Jason Nam (http://www.jasonnam.com)
+// Copyright (c) 2015-2017 Jason Nam (http://jasonnam.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,28 +25,29 @@
 
 import Foundation
 
-/// NJOPasswordValidator validates passwords with custom rules.
-open class NJOPasswordValidator: NSObject {
-    open var rules: [NJOPasswordRule] = []
+/// PasswordValidator validates passwords with custom rules.
+open class PasswordValidator {
 
-    /// Initialize NJOPasswordValidator with an array of NJOPasswordRule.
+    open var rules: [PasswordRule] = []
+
+    /// PasswordValidator object which checks if the length of password is between 6 and 24.
+    open static var standard: PasswordValidator {
+        return PasswordValidator(rules: [standardLengthRule])
+    }
+
+    /// Length rule having minimum of 6 and maximum of 24.
+    open static var standardLengthRule: LengthRule {
+        return LengthRule(min: 6, max: 24)
+    }
+
+    /// Initialize PasswordValidator with an array of PasswordRule.
     ///
     /// - parameter rules: Password rule(s)
     ///
     /// - returns: Password validator
-    public convenience init(rules: [NJOPasswordRule]) {
+    public convenience init(rules: [PasswordRule]) {
         self.init()
         self.rules = rules
-    }
-
-    /// NJOPasswordValidator object which checks if the length of password is between 6 and 24.
-    open class var standardValidator: NJOPasswordValidator {
-        return NJOPasswordValidator(rules: [standardLengthRule])
-    }
-
-    /// Length rule having minimum of 6 and maximum of 24.
-    open class var standardLengthRule: NJOLengthRule {
-        return NJOLengthRule(min: 6, max: 24)
     }
 
     /// Executes validation with a password and returns failing rules.
@@ -54,8 +55,8 @@ open class NJOPasswordValidator: NSObject {
     /// - parameter password: Password string to be validated
     ///
     /// - returns: Failing rules. nil if all of the rules are passed.
-    open func validate(_ password: String) -> [NJOPasswordRule]? {
-        var failingRules: [NJOPasswordRule] = []
+    open func validate(_ password: String) -> [PasswordRule]? {
+        var failingRules: [PasswordRule] = []
 
         for rule in rules {
             if rule.evaluate(password) {
