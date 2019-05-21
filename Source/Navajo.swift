@@ -48,7 +48,7 @@ open class Navajo {
     /// - parameter password: Password string to be calculated
     ///
     /// - returns: Level of strength in NJOPasswordStrength
-    open static func strength(ofPassword password: String) -> PasswordStrength {
+    public static func strength(ofPassword password: String) -> PasswordStrength {
         return passwordStrength(forEntropy: entropy(of: password))
     }
 
@@ -57,7 +57,7 @@ open class Navajo {
     /// - parameter strength: NJOPasswordStrength to be converted
     ///
     /// - returns: Localized string
-    open static func localizedString(forStrength strength: PasswordStrength) -> String {
+    public static func localizedString(forStrength strength: PasswordStrength) -> String {
         switch strength {
         case .veryWeak:
             return NSLocalizedString("NAVAJO_VERY_WEAK", tableName: nil, bundle: Bundle.main, value: "Very Weak", comment: "Navajo - Very weak")
