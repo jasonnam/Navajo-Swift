@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
                               :commit => "28f695ad421c2dc9dfde6ff8046e07efb1e8a79b",
                               :tag    => "2.1.0" }
 
-  s.source_files = "Source/*.{swift}"
+  s.source_files = "Sources/Navajo-Swift/*.{swift}"
   s.requires_arc = true
 
 end
