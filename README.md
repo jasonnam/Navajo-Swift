@@ -37,6 +37,17 @@ pod 'Navajo-Swift'
 import Navajo_Swift
 ```
 
+### Swift Package Manager:
+
+Add the following line to your `Package.swift`:
+
+```swift
+dependencies: [
+    // ...
+    .package(url: "https://github.com/Wistas23/Navajo-Swift.git"),
+],
+```
+
 ### Manual
 
 Just copy the files in Source folder into your project.
