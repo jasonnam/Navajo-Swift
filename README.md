@@ -20,6 +20,14 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/Navajo-Swift.svg?style=flat)](https://cocoapods.org/pods/Navajo-Swift)
 
+### SwiftPM
+
+`Xcode` > `File` > `Swift Packages` > `Add Package Dependency` paste URL of this repository and follow the instructions.
+
+```ogdl
+https://github.com/jasonnam/Navajo-Swift
+```
+
 ### Carthage
 
 ```ogdl
